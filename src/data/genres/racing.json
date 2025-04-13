@@ -1,0 +1,91 @@
+{
+  "id": "racing",
+  "name": "Racing",
+  "subgenres": ["None", "First-Person Shooter", "Platformer", "Puzzle Game"],
+  "targetGroups": ["Children", "Teenagers", "Adults", "Seniors", "All"],
+  "designPriority": [10, 40, 30, 20],
+  "designFocus": {
+    "None": {
+      "focus1": [7, 4, 8, 6],
+      "focus2": [1, 2, 8, 4],
+      "direction": [8, 0, 4]
+    },
+    "First-Person Shooter": {
+      "focus1": [6, 3, 7, 5],
+      "focus2": [2, 3, 9, 5],
+      "direction": [6, 3, 5]
+    },
+    "Platformer": {
+      "focus1": [6, 3, 9, 5],
+      "focus2": [1, 4, 9, 3],
+      "direction": [8, 2, 5]
+    },
+    "Puzzle Game": {
+      "focus1": [6, 3, 7, 5],
+      "focus2": [3, 2, 7, 7],
+      "direction": [8, 0, 7]
+    }
+  },
+  "topics": [
+    "Airplanes",
+    "Bicycle",
+    "Cabs",
+    "Cars",
+    "Desert",
+    "Drones",
+    "Economy",
+    "Extreme Sports",
+    "Historical",
+    "Horses",
+    "Jet Ski",
+    "Kart Racing",
+    "Motorcycles",
+    "Motorsports",
+    "Physics",
+    "Police",
+    "Rallycross",
+    "Riding",
+    "Roman Empire",
+    "Sailing",
+    "Skateboards",
+    "Skiing",
+    "Skydiving",
+    "Spaceships",
+    "Sports",
+    "Stock Car",
+    "Surfing",
+    "Transportation",
+    "Trucks"
+  ],
+  "combos": [
+    ["Airplanes", "Transportation"],
+    ["Bicycle", "Extreme Sports"],
+    ["Cabs", "Transportation"],
+    ["Cars", "Motorsports"],
+    ["Desert", "Motorsports"],
+    ["Drones", "Extreme Sports"],
+    ["Economy", "Motorsports"],
+    ["Extreme Sports", "Skateboards"],
+    ["Historical", "Roman Empire"],
+    ["Horses", "Riding"],
+    ["Jet Ski", "Extreme Sports"],
+    ["Kart Racing", "Motorsports"],
+    ["Motorcycles", "Motorsports"],
+    ["Motorsports", "Cars"],
+    ["Physics", "Motorsports"],
+    ["Police", "Cars"],
+    ["Rallycross", "Motorsports"],
+    ["Riding", "Horses"],
+    ["Roman Empire", "Historical"],
+    ["Sailing", "Transportation"],
+    ["Skateboards", "Extreme Sports"],
+    ["Skiing", "Extreme Sports"],
+    ["Skydiving", "Extreme Sports"],
+    ["Spaceships", "Transportation"],
+    ["Sports", "Extreme Sports"],
+    ["Stock Car", "Motorsports"],
+    ["Surfing", "Extreme Sports"],
+    ["Transportation", "Cars"],
+    ["Trucks", "Motorsports"]
+  ]
+}

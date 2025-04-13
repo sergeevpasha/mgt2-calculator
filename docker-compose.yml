@@ -1,0 +1,17 @@
+services:
+  app:
+    container_name: mgt2calculator
+    build: ./docker/images/node
+    volumes:
+      - ./src:/var/www
+    working_dir: /var/www
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+    networks:
+      - default-network
+networks:
+  default-network:
+    name: 'mgt2calculator-network'
+    driver: bridge
