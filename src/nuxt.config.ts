@@ -1,9 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  nitro: {
-    preset: 'static'
-  },
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-gtag'
@@ -17,9 +14,8 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-04-10',
   runtimeConfig: {
-    public: {
-      openaiApiKey: process.env.OPENAI_API_KEY,
-    },
+    // Private — server-only. Never exposed to the client bundle.
+    openaiApiKey: process.env.OPENAI_API_KEY,
   },
   app: {
     head: {
