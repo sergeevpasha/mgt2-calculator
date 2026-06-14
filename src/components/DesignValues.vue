@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h3 class="font-medium mb-2 text-center">{{ title }}</h3>
+    <h3 v-if="title" class="font-medium mb-2 text-center">{{ title }}</h3>
     <div class="flex flex-wrap gap-2 justify-center">
       <div
         v-for="(value, index) in values"
         :key="index"
-        class="relative w-8 h-8 flex items-center justify-center group"
+        class="relative flex h-9 w-9 items-center justify-center"
       >
-        <div class="absolute inset-0 rounded-full" :class="getColorClass(value)"></div>
-        <span class="relative z-10 text-white font-bold text-sm">{{ value }}</span>
+        <div class="absolute inset-0 rounded-full shadow-sm ring-1 ring-black/5" :class="getColorClass(value)"></div>
+        <span class="relative z-10 text-sm font-bold text-white">{{ value }}</span>
       </div>
     </div>
   </div>
