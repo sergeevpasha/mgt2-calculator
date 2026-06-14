@@ -88,6 +88,8 @@
           </div>
         </section>
 
+        <!-- Right column: topics + generated names -->
+        <div class="space-y-6">
         <!-- Topic card -->
         <section class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
           <div class="mb-5 flex items-center gap-2">
@@ -131,7 +133,7 @@
             </button>
             <button
               class="flex-1 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
-              :disabled="!selectedTopic || !selectedTopic2 || isLoading"
+              :disabled="!selectedTopic || isLoading"
               @click="handleGenerateGameNames"
             >
               {{ isLoading ? 'Generating…' : '✨ Generate names' }}
@@ -155,26 +157,27 @@
             </div>
           </div>
         </section>
-      </div>
 
-      <!-- Generated names -->
-      <section
-        v-if="generatedGameNames.length"
-        class="mt-6 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm"
-      >
-        <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900">
-          <span>✨</span> Game name ideas
-        </h2>
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          <div
-            v-for="(name, index) in generatedGameNames"
-            :key="index"
-            class="rounded-xl border border-slate-100 bg-slate-50 p-3 text-center text-sm font-medium text-slate-700 transition hover:border-indigo-200 hover:bg-indigo-50/50"
-          >
-            {{ name.replace(/"/g, '') }}
+        <!-- Generated names (right column, under topics) -->
+        <section
+          v-if="generatedGameNames.length"
+          class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm"
+        >
+          <h2 class="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900">
+            <span>✨</span> Game name ideas
+          </h2>
+          <div class="grid grid-cols-2 gap-2">
+            <div
+              v-for="(name, index) in generatedGameNames"
+              :key="index"
+              class="rounded-xl border border-slate-100 bg-slate-50 p-3 text-center text-sm font-medium text-slate-700 transition hover:border-indigo-200 hover:bg-indigo-50/50"
+            >
+              {{ name.replace(/"/g, '') }}
+            </div>
           </div>
+        </section>
         </div>
-      </section>
+      </div>
 
       <!-- Genre details -->
       <section
