@@ -1,35 +1,13 @@
 // Icon layer for genres and topics.
 //
-// Each genre/topic maps to a representative emoji. This is a deliberate,
+// Each topic maps to a representative emoji. This is a deliberate,
 // copyright-safe stand-in for the game's proprietary sprites: emoji render
 // everywhere with no bundled assets. If you later obtain the real MGT2
 // icons legitimately, this is the single place to swap — change a value
-// from an emoji string to e.g. `<img src="/icons/topics/zombies.png">` and
-// update the `Icon` component's render, nothing else in the app changes.
+// from an emoji string to e.g. `/icons/topics/zombies.png` and render it
+// as an `<img>` where `getTopicIcon` is used.
 
 export const FALLBACK_ICON = '🎮';
-
-export const genreIcons: Record<string, string> = {
-  Action: '💥',
-  Adventure: '🗺️',
-  'Building Game': '🏗️',
-  'Economic Simulation': '📈',
-  'Fighting Game': '🥊',
-  'First-Person Shooter': '🔫',
-  'Interactive Movie': '🎬',
-  Platformer: '🍄',
-  'Puzzle Game': '🧩',
-  Racing: '🏎️',
-  'Real-Time Strategy': '⚔️',
-  'Role-Playing Game': '🐉',
-  Simulation: '⚙️',
-  'Skill Game': '🎯',
-  'Sports Game': '⚽',
-  Strategy: '♟️',
-  'Survival Game': '🏕️',
-  'Third-Person Shooter': '🪖',
-  'Visual Novel': '📖',
-};
 
 export const topicIcons: Record<string, string> = {
   Agents: '🕵️',
@@ -367,5 +345,4 @@ export const genreIconFiles: Record<string, string> = {
 export const getGenreIconSrc = (name: string): string | null =>
   genreIconFiles[name] ? `/icons/genres/${genreIconFiles[name]}` : null;
 
-export const getGenreIcon = (name: string): string => genreIcons[name] ?? FALLBACK_ICON;
 export const getTopicIcon = (name: string): string => topicIcons[name] ?? FALLBACK_ICON;
