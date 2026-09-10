@@ -22,6 +22,8 @@ export interface Topic {
 }
 
 export interface DesignValuesProps {
+  title?: string;
+  labels?: string[];
   values: number[];
   type?: 'focus' | 'direction';
 }
