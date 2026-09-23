@@ -14,7 +14,6 @@ export interface Genre {
     [key: string]: DesignFocus;
   };
   topics: string[];
-  combos: string[][];
 }
 
 export interface Topic {

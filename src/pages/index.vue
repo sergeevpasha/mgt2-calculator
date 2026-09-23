@@ -34,13 +34,8 @@
           >
           <a
             class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
-            href="#combinations"
-            >Suggested pairs <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
-          /></a>
-          <a
-            class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:hidden"
             href="#topics"
-            >Topic library <UiIcon class="size-[13px]" name="arrow"
+            >Topic library <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
           /></a>
         </nav>
         <span class="ml-auto flex items-center gap-[7px] text-[12px] text-muted max-md:hidden"
@@ -320,55 +315,6 @@
           </section>
 
           <section
-            v-if="primaryGenre && topicPairs.length"
-            id="combinations"
-            class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
-            aria-labelledby="combinations-heading"
-          >
-            <div class="flex items-end justify-between gap-2">
-              <div class="min-w-0">
-                <p class="mb-[5px] text-[10px] font-bold tracking-[1.5px] text-accent max-xs:text-[9px]">
-                  SUGGESTED PAIRS
-                </p>
-                <h2
-                  id="combinations-heading"
-                  class="text-[17px] font-[650] leading-[1.4] tracking-[-0.5px] max-sm:text-[16px]"
-                >
-                  {{ primaryGenre.name }} topic pairs
-                </h2>
-              </div>
-              <span class="whitespace-nowrap pb-0.5 text-[11px] text-muted">{{ topicPairs.length }} pairs</span>
-            </div>
-            <p class="mb-[17px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:text-[11px]">
-              Both topics in each pair fit {{ primaryGenre.name }}. The game has no special pairs, but one you haven’t
-              used yet sells a little better. Pick one to set your primary and secondary topic.
-            </p>
-            <div
-              class="flex max-h-[222px] flex-wrap gap-[7px] overflow-y-auto pb-[5px] pl-0.5 pr-[7px] pt-0.5 [scrollbar-color:theme(colors.steel.400)_transparent] [scrollbar-width:thin] max-sm:max-h-[244px]"
-              role="group"
-              aria-labelledby="combinations-heading"
-            >
-              <button
-                v-for="pair in topicPairs"
-                :key="pair.join('+')"
-                class="inline-flex min-h-[34px] items-center gap-1.5 rounded-[7px] border px-[9px] py-1.5 text-left text-[11px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-[37px] max-sm:px-2"
-                :class="
-                  isSelectedPair(pair)
-                    ? 'border-accent-300 bg-accent-soft text-denim-700'
-                    : 'border-line hover:bg-steel-150'
-                "
-                :aria-label="`${pair[0]} and ${pair[1]}`"
-                :aria-pressed="isSelectedPair(pair)"
-                @click="selectPair(pair)"
-              >
-                {{ getTopicIcon(pair[0]) }} {{ pair[0] }}
-                <span class="text-steel-500" aria-hidden="true">+</span>
-                {{ getTopicIcon(pair[1]) }} {{ pair[1] }}
-              </button>
-            </div>
-          </section>
-
-          <section
             class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
             aria-labelledby="concept-heading"
           >
@@ -634,7 +580,7 @@ import type { Genre, Topic } from '~/types';
 import DesignValues from '~/components/DesignValues.vue';
 import DesignPriority from '~/components/DesignPriority.vue';
 import UiIcon from '~/components/UiIcon.vue';
-import genres, { getTopicPairs } from '~/data/genres';
+import genres from '~/data/genres';
 import { focusLabels, priorityLabels } from '~/data/designLabels';
 import { getGenreIconSrc, getTopicIcon } from '~/data/icons';
 import { useOpenAI } from '~/composables/useOpenAI';
@@ -752,14 +698,6 @@ const toggleTopic = (id: string): void => {
   else if (!selectedTopic2.value) selectedTopic2.value = id;
   else selectedTopic.value = id;
   if (isSelectedTopic(id)) trackEvent('select_topic', { topic: id });
-};
-const topicPairs = computed(() => (primaryGenre.value ? getTopicPairs(primaryGenre.value) : []));
-const isSelectedPair = ([first, second]: [string, string]): boolean =>
-  isSelectedTopic(first) && isSelectedTopic(second);
-const selectPair = ([first, second]: [string, string]): void => {
-  selectedTopic.value = first;
-  selectedTopic2.value = second;
-  trackEvent('select_combination', { combination: `${first} + ${second}` });
 };
 const generateRandomTopics = (): void => {
   const topics = [...(primaryGenre.value?.topics || [])];
