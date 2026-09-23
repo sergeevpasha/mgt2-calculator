@@ -35,7 +35,7 @@
           <a
             class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
             href="#combinations"
-            >Best combos <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
+            >Suggested pairs <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
           /></a>
           <a
             class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:hidden"
@@ -143,7 +143,7 @@
             >
               <div class="mb-[11px] flex items-center justify-between text-[12px] font-semibold">
                 <span id="subgenre-label">Subgenre</span
-                ><span class="text-[11px] font-normal text-muted">Optional</span>
+                ><span class="text-[11px] font-normal text-muted">Recommended</span>
               </div>
               <div class="flex flex-wrap gap-[7px]" role="group" aria-labelledby="subgenre-label">
                 <button
@@ -309,8 +309,8 @@
               class="flex items-center justify-between gap-2.5 border-t border-line py-3.5 text-[10px] text-muted max-sm:gap-[7px] max-sm:text-[9px]"
             >
               <span class="flex items-center gap-[7px]"
-                ><UiIcon class="size-[13px] text-steel-600 max-sm:hidden" name="sliders" /> Match these values to your
-                in-game sliders.</span
+                ><UiIcon class="size-[13px] shrink-0 text-steel-600 max-sm:hidden" name="sliders" /> Match these values
+                to your in-game sliders. Assumes the random game concept and genre combination options are off.</span
               >
               <span class="flex items-center gap-[7px] whitespace-nowrap"
                 ><i class="size-[5px] rounded-full bg-accent-500"></i> Live</span
@@ -328,7 +328,7 @@
             <div class="flex items-end justify-between gap-2">
               <div class="min-w-0">
                 <p class="mb-[5px] text-[10px] font-bold tracking-[1.5px] text-accent max-xs:text-[9px]">
-                  BEST COMBINATIONS
+                  SUGGESTED PAIRS
                 </p>
                 <h2
                   id="combinations-heading"
@@ -340,7 +340,8 @@
               <span class="whitespace-nowrap pb-0.5 text-[11px] text-muted">{{ topicPairs.length }} pairs</span>
             </div>
             <p class="mb-[17px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:text-[11px]">
-              Both topics in each pair fit {{ primaryGenre.name }}. Pick one to set your primary and secondary topic.
+              Both topics in each pair fit {{ primaryGenre.name }}. The game has no special pairs, but one you haven’t
+              used yet sells a little better. Pick one to set your primary and secondary topic.
             </p>
             <div
               class="flex max-h-[222px] flex-wrap gap-[7px] overflow-y-auto pb-[5px] pl-0.5 pr-[7px] pt-0.5 [scrollbar-color:theme(colors.steel.400)_transparent] [scrollbar-width:thin] max-sm:max-h-[244px]"
@@ -387,7 +388,7 @@
               <UiIcon class="size-[21px] text-steel-500" name="sparkles" />
             </div>
             <p class="mb-[21px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:mb-[17px] max-sm:text-[11px]">
-              Set the scene with one or two compatible topics.
+              Set the scene with two compatible topics.
             </p>
             <div
               class="grid grid-cols-[minmax(0,1fr)_12px_minmax(0,1fr)] items-end gap-3 max-sm:grid-cols-[minmax(0,1fr)_8px_minmax(0,1fr)] max-sm:gap-[7px]"
@@ -420,7 +421,7 @@
                 <label
                   for="topic-two"
                   class="mb-2 flex items-center justify-between text-[11px] font-semibold max-sm:min-h-[29px] max-sm:flex-wrap max-sm:gap-x-[5px] max-sm:gap-y-0.5"
-                  >Secondary topic <span class="text-[10px] font-normal text-muted">Optional</span></label
+                  >Secondary topic <span class="text-[10px] font-normal text-muted">Recommended</span></label
                 ><select
                   id="topic-two"
                   v-model="selectedTopic2"
@@ -533,7 +534,7 @@
             </div>
             <p class="mb-[17px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:text-[11px]">
               Topics that fit <strong class="font-semibold text-denim-600">{{ primaryGenre?.name }}</strong
-              >. Pick up to two to build your concept.
+              >. Pick two to build your concept.
             </p>
           </div>
           <div
