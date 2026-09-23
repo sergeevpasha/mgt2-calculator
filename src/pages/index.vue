@@ -1,30 +1,30 @@
 <template>
   <div id="top">
     <a
-      class="fixed -top-20 left-4 z-20 rounded-lg bg-ink px-[18px] py-3 text-white focus:top-3 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
+      class="fixed -top-20 left-4 z-20 rounded-lg bg-ink px-[18px] py-3 text-[15px] font-semibold text-white focus:top-3 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
       href="#calculator"
       >Skip to calculator</a
     >
     <header class="border-b border-line bg-surface">
       <div
-        class="mx-auto flex h-[84px] max-w-[1344px] items-center gap-[60px] px-8 max-lg:px-6 max-md:gap-[35px] max-sm:h-[73px] max-sm:gap-2.5 max-sm:px-[18px]"
+        class="mx-auto flex h-[84px] max-w-[1344px] items-center gap-[60px] px-8 max-lg:px-6 max-md:gap-9 max-sm:h-[72px] max-sm:gap-3 max-sm:px-4"
       >
         <a
-          class="flex items-center gap-[11px] text-[15px] font-bold tracking-[-0.45px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:gap-2 max-sm:text-[13px]"
+          class="flex items-center gap-3 text-[17px] font-bold tracking-[-0.4px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:gap-2.5 max-sm:text-[15px]"
           href="#top"
           aria-label="Mad Games Tycoon 2 calculator home"
         >
-          <img class="rounded-xl max-sm:size-[35px]" src="/icons/favicon-96x96.png" alt="" width="42" height="42" />
+          <img class="rounded-xl max-sm:size-10" src="/icons/favicon-96x96.png" alt="" width="46" height="46" />
           <span
             >Mad Games Tycoon <b class="text-accent">2</b
             ><small
-              class="mt-[3px] block text-[11px] font-medium uppercase tracking-[1.4px] text-muted max-sm:text-[10px] max-sm:tracking-[1px]"
+              class="mt-0.5 block text-[12px] font-semibold uppercase tracking-[1.3px] text-muted max-sm:tracking-[0.8px]"
               >The studio companion</small
             ></span
           >
         </a>
         <nav
-          class="flex gap-[30px] self-stretch text-[13px] font-semibold max-md:ml-auto max-sm:gap-0 max-sm:text-[11px] max-xs:hidden"
+          class="flex gap-9 self-stretch text-[15px] font-semibold max-md:ml-auto max-sm:gap-0 max-sm:text-[13px] max-xs:hidden"
           aria-label="Main navigation"
         >
           <a
@@ -35,34 +35,32 @@
           <a
             class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
             href="#topics"
-            >Topic library <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
+            >Topic library <UiIcon class="size-3.5 max-sm:hidden" name="arrow"
           /></a>
         </nav>
-        <span class="ml-auto flex items-center gap-[7px] text-[12px] text-muted max-md:hidden"
+        <span class="ml-auto flex items-center gap-2 text-[14px] text-muted max-md:hidden"
           ><span class="size-1.5 rounded-full bg-denim-400"></span> Made for the game</span
         >
       </div>
     </header>
 
-    <main class="mx-auto max-w-[1344px] px-8 max-lg:px-6 max-sm:px-3.5">
-      <div class="flex items-center justify-between pb-[30px] pt-[35px] max-sm:px-[5px] max-sm:pb-4 max-sm:pt-5">
+    <main class="mx-auto max-w-[1344px] px-8 max-lg:px-6 max-sm:px-3">
+      <div class="flex items-center justify-between gap-6 pb-8 pt-10 max-sm:px-1 max-sm:pb-5 max-sm:pt-6">
         <div>
-          <p class="mb-[9px] text-[10px] font-bold tracking-[1.5px] text-accent max-sm:mb-1.5 max-sm:tracking-[1.2px]">
+          <p class="mb-3 text-[12px] font-bold tracking-[1.5px] text-accent max-sm:mb-2 max-sm:tracking-[1.2px]">
             LESS GUESSWORK. MORE GREAT GAMES.
           </p>
           <h1
-            class="text-[clamp(28px,3vw,38px)] font-[650] leading-[1.18] tracking-[-1.8px] max-sm:text-[26px] max-sm:tracking-[-1px]"
+            class="text-[clamp(30px,3.2vw,44px)] font-[650] leading-[1.15] tracking-[-1.5px] max-sm:text-[28px] max-sm:tracking-[-0.8px]"
           >
             Build your next <em class="font-serif font-normal text-accent">big hit.</em>
           </h1>
-          <p
-            class="mt-[11px] text-[13px] text-muted max-sm:mt-2 max-sm:max-w-[285px] max-sm:text-[12px] max-sm:leading-[1.6]"
-          >
+          <p class="mt-3 text-[17px] leading-relaxed text-muted max-sm:mt-2 max-sm:text-[15px]">
             Find your genre, dial in the design, and give your next game a name.
           </p>
         </div>
-        <div class="flex items-center gap-3.5 pr-3 text-[13px] leading-[1.8] text-muted max-sm:hidden">
-          <UiIcon class="size-9 stroke-1 text-steel-500" name="sliders" /><span
+        <div class="flex shrink-0 items-center gap-4 pr-3 text-[15px] leading-[1.7] text-muted max-sm:hidden">
+          <UiIcon class="size-10 stroke-1 text-steel-500" name="sliders" /><span
             >Your ideas.<br /><strong class="font-semibold text-steel-900">The right settings.</strong></span
           >
         </div>
@@ -70,40 +68,40 @@
 
       <div
         id="calculator"
-        class="grid grid-cols-[minmax(0,.91fr)_minmax(0,1.24fr)] items-start gap-[22px] max-lg:grid-cols-[minmax(0,.95fr)_minmax(0,1.2fr)] max-lg:gap-[18px] max-md:grid-cols-[1fr]"
+        class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] items-start gap-6 max-lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] max-lg:gap-5 max-md:grid-cols-[1fr] max-sm:gap-4"
       >
         <section
-          class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
+          class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[14px] max-sm:px-4 max-sm:py-5"
           aria-labelledby="genre-heading"
         >
-          <div class="flex items-center justify-between gap-2">
-            <div class="flex items-center gap-2.5">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
               <span
-                class="inline-flex size-[25px] shrink-0 items-center justify-center rounded-[7px] bg-steel-200 text-[11px] font-bold text-muted"
+                class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-steel-200 text-[12px] font-bold text-muted"
                 >01</span
               >
-              <h2 id="genre-heading" class="text-[17px] font-[650] leading-[1.4] tracking-[-0.5px] max-sm:text-[16px]">
+              <h2 id="genre-heading" class="text-[20px] font-[650] leading-snug tracking-[-0.4px] max-sm:text-[18px]">
                 Choose your genre
               </h2>
             </div>
-            <span class="whitespace-nowrap text-[11px] text-muted">{{ genresList.length }} genres</span>
+            <span class="whitespace-nowrap text-[13px] text-muted">{{ genresList.length }} genres</span>
           </div>
-          <p class="mb-[21px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:mb-[17px] max-sm:text-[11px]">
+          <p class="mb-6 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-5 max-sm:text-[14px]">
             Every great game starts with a good combination.
           </p>
-          <div class="mb-[11px] flex items-center justify-between text-[12px] font-semibold">
-            <span id="primary-label">Primary genre</span
-            ><span class="text-[11px] font-normal text-muted">Choose one</span>
+          <div class="mb-3 flex items-baseline justify-between gap-3">
+            <span id="primary-label" class="text-[15px] font-semibold">Primary genre</span
+            ><span class="text-[13px] text-muted">Choose one</span>
           </div>
           <div
-            class="grid grid-cols-5 gap-[7px] max-lg:grid-cols-4 max-md:grid-cols-7 max-sm:grid-cols-4 max-sm:gap-1.5 max-xs:grid-cols-3"
+            class="grid grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-2 max-sm:gap-1.5"
             role="group"
             aria-labelledby="primary-label"
           >
             <button
               v-for="genre in genresList"
               :key="genre.id"
-              class="group relative flex min-h-[90px] flex-col items-center gap-1.5 rounded-[9px] border px-[3px] pb-[7px] pt-2.5 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition xl:min-h-[94px] max-sm:min-h-[88px]"
+              class="group relative flex min-h-[104px] flex-col items-center gap-2 rounded-[10px] border px-1.5 pb-2.5 pt-3 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-[88px] max-sm:gap-1.5 max-sm:pb-2 max-sm:pt-2.5"
               :class="
                 selectedGenre === genre.id
                   ? 'border-accent-400 bg-accent-soft text-accent-700 ring-1 ring-accent-400/[.125]'
@@ -114,37 +112,31 @@
             >
               <span
                 v-if="selectedGenre === genre.id"
-                class="absolute right-1 top-1 grid size-[13px] place-items-center rounded-full bg-accent text-white"
-                ><UiIcon class="size-[9px] stroke-[2.5]" name="check"
+                class="absolute right-1.5 top-1.5 grid size-4 place-items-center rounded-full bg-accent text-white"
+                ><UiIcon class="size-2.5 stroke-[2.5]" name="check"
               /></span>
               <img
-                class="size-[38px] object-contain group-hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-[180ms] max-sm:size-9"
+                class="size-10 object-contain group-hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-[180ms] max-sm:size-9"
                 :src="getGenreIconSrc(genre.name)!"
                 alt=""
                 width="40"
                 height="40"
               />
-              <span
-                class="max-w-[83px] text-[10px] font-[550] leading-[1.35] xl:text-[11px] max-md:text-[11px] max-sm:text-[10px]"
-                >{{ genre.name }}</span
-              >
+              <span class="text-[13px] font-semibold leading-[1.3]">{{ genre.name }}</span>
             </button>
           </div>
 
           <template v-if="primaryGenre">
-            <div
-              ref="subgenresSection"
-              class="mt-[22px] border-t border-line pt-[22px] max-md:mt-[17px] max-md:pt-[17px]"
-            >
-              <div class="mb-[11px] flex items-center justify-between text-[12px] font-semibold">
-                <span id="subgenre-label">Subgenre</span
-                ><span class="text-[11px] font-normal text-muted">Recommended</span>
+            <div ref="subgenresSection" class="mt-6 border-t border-line pt-6 max-md:mt-5 max-md:pt-5">
+              <div class="mb-3 flex items-baseline justify-between gap-3">
+                <span id="subgenre-label" class="text-[15px] font-semibold">Subgenre</span
+                ><span class="text-[13px] text-muted">Recommended</span>
               </div>
-              <div class="flex flex-wrap gap-[7px]" role="group" aria-labelledby="subgenre-label">
+              <div class="flex flex-wrap gap-2" role="group" aria-labelledby="subgenre-label">
                 <button
                   v-for="sg in primaryGenre.subgenres"
                   :key="sg"
-                  class="inline-flex min-h-[34px] items-center gap-1.5 rounded-[7px] border px-[9px] py-1.5 text-[11px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-[37px] max-sm:px-2"
+                  class="inline-flex min-h-11 items-center gap-2 rounded-lg border px-3 py-1.5 text-[14px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
                   :class="
                     selectedSubgenre === sg
                       ? 'border-accent-300 bg-accent-soft text-denim-700'
@@ -155,26 +147,26 @@
                 >
                   <img
                     v-if="getGenreIconSrc(sg)"
-                    class="object-contain"
+                    class="size-6 object-contain"
                     :src="getGenreIconSrc(sg)!"
                     alt=""
-                    width="21"
-                    height="21"
+                    width="24"
+                    height="24"
                   />
-                  <UiIcon v-else-if="selectedSubgenre === sg" class="size-[13px]" name="check" />
+                  <UiIcon v-else-if="selectedSubgenre === sg" class="size-4" name="check" />
                   {{ sg === 'None' ? 'No subgenre' : sg }}
                 </button>
               </div>
             </div>
             <div
-              class="mt-[22px] flex items-center justify-between gap-2.5 rounded-lg bg-steel-100 p-3 max-md:mt-[17px] max-sm:px-[9px] max-sm:py-[11px]"
+              class="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-[10px] bg-steel-100 px-4 py-3 max-md:mt-5"
             >
-              <span class="text-[11px] text-muted">Target audience</span>
-              <div class="flex flex-wrap justify-end gap-[5px]">
+              <span class="text-[14px] text-muted">Target audience</span>
+              <div class="flex flex-wrap gap-1.5">
                 <span
                   v-for="group in primaryGenre.targetGroups"
                   :key="group"
-                  class="rounded border border-steel-300 bg-surface px-1.5 py-[3px] text-[10px] text-steel-800"
+                  class="rounded-md border border-steel-300 bg-surface px-2 py-1 text-[13px] text-steel-900"
                   >{{ group }}</span
                 >
               </div>
@@ -182,29 +174,25 @@
           </template>
         </section>
 
-        <div class="flex min-w-0 flex-col gap-[19px]">
+        <div class="flex min-w-0 flex-col gap-6 max-lg:gap-5 max-sm:gap-4">
           <section
             v-if="primaryGenre"
             id="design-settings"
             ref="designSettingsSection"
-            class="rounded-2xl border border-steel-350 bg-surface px-6 pt-6 text-ink shadow-card max-lg:px-5 max-lg:pt-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:pt-[18px]"
+            class="rounded-2xl border border-steel-350 bg-surface px-6 pt-6 text-ink shadow-card max-lg:px-5 max-lg:pt-5 max-sm:rounded-[14px] max-sm:px-4"
             aria-labelledby="recipe-heading"
           >
             <div
-              class="mb-5 flex items-center justify-between gap-4 border-b border-line pb-[23px] max-sm:mb-[18px] max-sm:gap-2.5 max-sm:pb-[18px]"
+              class="mb-6 flex items-center justify-between gap-4 border-b border-line pb-6 max-sm:mb-5 max-sm:gap-3 max-sm:pb-5"
             >
-              <div class="flex min-w-0 items-center gap-[13px] max-sm:gap-2.5">
+              <div class="flex min-w-0 items-center gap-4 max-sm:gap-3">
                 <div
-                  class="shrink-0 place-items-center rounded-xl border border-accent-150 bg-accent-soft p-[9px] max-sm:rounded-[9px]"
-                  :class="
-                    subgenreIcon ? 'flex gap-[5px] max-sm:gap-[3px] max-sm:px-1.5 max-sm:py-2' : 'grid max-sm:p-2'
-                  "
+                  class="shrink-0 place-items-center rounded-xl border border-accent-150 bg-accent-soft p-2.5 max-sm:rounded-[10px] max-sm:p-2"
+                  :class="subgenreIcon ? 'flex gap-1.5 max-sm:gap-1' : 'grid'"
                 >
                   <img
                     class="object-contain"
-                    :class="
-                      subgenreIcon ? 'h-[42px] w-9 max-sm:h-[35px] max-sm:w-[30px]' : 'size-[42px] max-sm:size-[35px]'
-                    "
+                    :class="subgenreIcon ? 'h-11 w-10 max-sm:h-9 max-sm:w-8' : 'size-11 max-sm:size-9'"
                     :src="getGenreIconSrc(primaryGenre.name)!"
                     alt=""
                     width="48"
@@ -212,12 +200,12 @@
                   />
                   <template v-if="subgenreIcon">
                     <span
-                      class="text-[15px] font-medium leading-none text-denim-300 max-sm:text-[12px]"
+                      class="text-[16px] font-medium leading-none text-denim-300 max-sm:text-[13px]"
                       aria-hidden="true"
                       >+</span
                     >
                     <img
-                      class="h-[42px] w-9 object-contain max-sm:h-[35px] max-sm:w-[30px]"
+                      class="h-11 w-10 object-contain max-sm:h-9 max-sm:w-8"
                       :src="subgenreIcon"
                       alt=""
                       width="48"
@@ -226,17 +214,15 @@
                   </template>
                 </div>
                 <div class="min-w-0 [overflow-wrap:anywhere]">
-                  <p class="mb-[5px] text-[10px] font-bold tracking-[1.5px] text-accent max-xs:text-[9px]">
-                    DESIGN SETTINGS
-                  </p>
+                  <p class="mb-1 text-[12px] font-bold tracking-[1.5px] text-accent">DESIGN SETTINGS</p>
                   <h2
                     id="recipe-heading"
-                    class="text-[23px] font-[650] leading-[1.25] tracking-[-0.5px] max-sm:text-[20px]"
+                    class="text-[26px] font-[650] leading-tight tracking-[-0.5px] max-sm:text-[22px]"
                   >
                     {{ primaryGenre.name
                     }}<span
                       v-if="selectedSubgenre !== 'None'"
-                      class="mt-1 block text-[12px] font-medium text-muted max-sm:text-[11px]"
+                      class="mt-1 block text-[15px] font-medium tracking-normal text-muted max-sm:text-[14px]"
                     >
                       + {{ selectedSubgenre }}</span
                     >
@@ -244,110 +230,106 @@
                 </div>
               </div>
               <button
-                class="inline-flex shrink-0 items-center justify-center gap-[7px] whitespace-nowrap rounded-lg border border-steel-350 bg-white px-[11px] py-[9px] text-[11px] font-semibold text-steel-900 hover:border-accent-300 hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-[38px] max-sm:min-w-[38px] max-sm:p-2.5"
+                class="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-steel-350 bg-white px-3.5 py-2 text-[14px] font-semibold text-steel-900 hover:border-accent-300 hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-11 max-sm:min-w-11 max-sm:p-2.5"
                 :aria-label="copyStatus || 'Copy design settings'"
                 :title="copyStatus || 'Copy design settings'"
                 @click="copySettings"
               >
-                <UiIcon class="size-3.5" :name="copyStatus === 'Copied!' ? 'check' : 'copy'" /><span
+                <UiIcon class="size-4" :name="copyStatus === 'Copied!' ? 'check' : 'copy'" /><span
                   class="max-sm:hidden"
                   >{{ copyStatus === 'Copied!' ? 'Copied!' : 'Copy settings' }}</span
                 >
               </button>
             </div>
-            <div class="mb-[18px] flex items-center justify-between gap-2.5">
-              <h3 class="text-[12px] font-[650]">Development priority</h3>
-              <span class="text-[10px] text-muted"
+            <div class="mb-4 flex items-center justify-between gap-3">
+              <h3 class="text-[15px] font-[650]">Development priority</h3>
+              <span class="text-[13px] text-muted"
                 >Total
-                <strong class="ml-1 inline-block rounded bg-steel-150 px-1.5 py-[3px] font-semibold text-steel-850"
+                <strong class="ml-1 inline-block rounded-md bg-steel-150 px-2 py-0.5 font-semibold text-steel-900"
                   >100%</strong
                 ></span
               >
             </div>
             <DesignPriority title="" :values="primaryGenre.designPriority" />
             <template v-if="currentFocus">
-              <div class="mb-4 mt-[25px] grid grid-cols-2 gap-3.5 max-lg:gap-3 max-sm:mt-[22px] max-sm:gap-2.5">
+              <div class="mb-6 mt-7 grid grid-cols-2 gap-4 max-lg:gap-3 max-sm:mt-6 max-sm:grid-cols-1">
                 <section
-                  class="min-w-0 rounded-[10px] border border-steel-200 bg-steel-100 px-4 pb-4 pt-3.5 max-lg:p-3 max-sm:px-2.5 max-xs:px-2"
+                  class="min-w-0 rounded-xl border border-steel-200 bg-steel-100 px-5 pb-5 pt-4 max-lg:px-4 max-lg:pb-4"
                   aria-labelledby="focus-one-heading"
                 >
-                  <div class="mb-[13px] flex items-center justify-between gap-2.5 max-sm:gap-[5px]">
-                    <h3 id="focus-one-heading" class="text-[12px] font-[650] max-sm:text-[11px]">
-                      Design focus <span class="ml-1 text-[10px] font-medium text-steel-650 max-sm:ml-0.5">01</span>
+                  <div class="mb-4 flex items-baseline justify-between gap-3">
+                    <h3 id="focus-one-heading" class="text-[15px] font-[650]">
+                      Design focus <span class="ml-1 text-[13px] font-medium text-muted">01</span>
                     </h3>
-                    <span class="text-[10px] text-muted max-sm:text-[9px] max-xs:hidden">0–10</span>
+                    <span class="text-[12px] text-muted">0–10</span>
                   </div>
                   <DesignValues :values="currentFocus.focus1" :labels="focusLabels.focus1" type="focus" />
                 </section>
                 <section
-                  class="min-w-0 rounded-[10px] border border-steel-200 bg-steel-100 px-4 pb-4 pt-3.5 max-lg:p-3 max-sm:px-2.5 max-xs:px-2"
+                  class="min-w-0 rounded-xl border border-steel-200 bg-steel-100 px-5 pb-5 pt-4 max-lg:px-4 max-lg:pb-4"
                   aria-labelledby="focus-two-heading"
                 >
-                  <div class="mb-[13px] flex items-center justify-between gap-2.5 max-sm:gap-[5px]">
-                    <h3 id="focus-two-heading" class="text-[12px] font-[650] max-sm:text-[11px]">
-                      Design focus <span class="ml-1 text-[10px] font-medium text-steel-650 max-sm:ml-0.5">02</span>
+                  <div class="mb-4 flex items-baseline justify-between gap-3">
+                    <h3 id="focus-two-heading" class="text-[15px] font-[650]">
+                      Design focus <span class="ml-1 text-[13px] font-medium text-muted">02</span>
                     </h3>
-                    <span class="text-[10px] text-muted max-sm:text-[9px] max-xs:hidden">0–10</span>
+                    <span class="text-[12px] text-muted">0–10</span>
                   </div>
                   <DesignValues :values="currentFocus.focus2" :labels="focusLabels.focus2" type="focus" />
                 </section>
               </div>
-              <section class="pb-5 pt-[3px]" aria-labelledby="direction-heading">
-                <div class="mb-3 flex items-center justify-between gap-2.5 max-sm:gap-[5px]">
-                  <h3 id="direction-heading" class="text-[12px] font-[650] max-sm:text-[11px]">Design direction</h3>
-                  <span class="text-[10px] text-muted max-sm:text-[9px] max-xs:hidden">0–10</span>
+              <section class="pb-6" aria-labelledby="direction-heading">
+                <div class="mb-4 flex items-baseline justify-between gap-3">
+                  <h3 id="direction-heading" class="text-[15px] font-[650]">Design direction</h3>
+                  <span class="text-[12px] text-muted">0–10</span>
                 </div>
                 <DesignValues :values="currentFocus.direction" :labels="focusLabels.direction" type="direction" />
               </section>
             </template>
-            <div
-              class="flex items-center justify-between gap-2.5 border-t border-line py-3.5 text-[10px] text-muted max-sm:gap-[7px] max-sm:text-[9px]"
-            >
-              <span class="flex items-center gap-[7px]"
-                ><UiIcon class="size-[13px] shrink-0 text-steel-600 max-sm:hidden" name="sliders" /> Match these values
-                to your in-game sliders. Assumes the random game concept and genre combination options are off.</span
+            <div class="flex items-center justify-between gap-4 border-t border-line py-4 text-[13px] text-muted">
+              <span class="flex items-center gap-2.5"
+                ><UiIcon class="size-4 shrink-0 text-steel-600 max-sm:hidden" name="sliders" /> Match these values to
+                your in-game sliders. Assumes the random game concept and genre combination options are off.</span
               >
-              <span class="flex items-center gap-[7px] whitespace-nowrap"
-                ><i class="size-[5px] rounded-full bg-accent-500"></i> Live</span
+              <span class="flex items-center gap-2 whitespace-nowrap"
+                ><i class="size-1.5 rounded-full bg-accent-500"></i> Live</span
               >
             </div>
             <span class="sr-only" role="status">{{ copyStatus }}</span>
           </section>
 
           <section
-            class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
+            class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[14px] max-sm:px-4 max-sm:py-5"
             aria-labelledby="concept-heading"
           >
-            <div class="flex items-center justify-between gap-2">
-              <div class="flex items-center gap-2.5">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
                 <span
-                  class="inline-flex size-[25px] shrink-0 items-center justify-center rounded-[7px] bg-steel-200 text-[11px] font-bold text-muted"
+                  class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-steel-200 text-[12px] font-bold text-muted"
                   >02</span
                 >
                 <h2
                   id="concept-heading"
-                  class="text-[17px] font-[650] leading-[1.4] tracking-[-0.5px] max-sm:text-[16px]"
+                  class="text-[20px] font-[650] leading-snug tracking-[-0.4px] max-sm:text-[18px]"
                 >
                   Make it your own
                 </h2>
               </div>
-              <UiIcon class="size-[21px] text-steel-500" name="sparkles" />
+              <UiIcon class="size-6 text-steel-500" name="sparkles" />
             </div>
-            <p class="mb-[21px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:mb-[17px] max-sm:text-[11px]">
+            <p class="mb-6 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-5 max-sm:text-[14px]">
               Set the scene with two compatible topics.
             </p>
             <div
-              class="grid grid-cols-[minmax(0,1fr)_12px_minmax(0,1fr)] items-end gap-3 max-sm:grid-cols-[minmax(0,1fr)_8px_minmax(0,1fr)] max-sm:gap-[7px]"
+              class="grid grid-cols-[minmax(0,1fr)_16px_minmax(0,1fr)] items-end gap-3 max-sm:grid-cols-1 max-sm:gap-4"
             >
               <div>
-                <label
-                  for="topic-one"
-                  class="mb-2 flex items-center justify-between text-[11px] font-semibold max-sm:min-h-[29px] max-sm:flex-wrap max-sm:gap-x-[5px] max-sm:gap-y-0.5"
+                <label for="topic-one" class="mb-2 flex items-baseline justify-between gap-2 text-[14px] font-semibold"
                   >Primary topic</label
                 ><select
                   id="topic-one"
                   v-model="selectedTopic"
-                  class="min-h-[41px] w-full appearance-none rounded-[7px] border border-steel-350 bg-steel-50 bg-chevron bg-[length:13px] bg-[position:right_10px_center] bg-no-repeat py-2 pl-[11px] pr-[30px] text-[12px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:min-h-11 max-sm:pl-2 max-sm:pr-[25px]"
+                  class="min-h-11 w-full appearance-none rounded-lg border border-steel-350 bg-steel-50 bg-chevron bg-[length:16px] bg-[position:right_12px_center] bg-no-repeat py-2 pl-3 pr-10 text-[15px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:text-[16px]"
                   :disabled="!selectedGenre"
                   @change="onTopicSelect"
                 >
@@ -362,16 +344,16 @@
                   </option>
                 </select>
               </div>
-              <span class="self-end pb-3 text-steel-500" aria-hidden="true">+</span>
+              <span class="self-end pb-3 text-center text-[16px] text-steel-500 max-sm:hidden" aria-hidden="true"
+                >+</span
+              >
               <div>
-                <label
-                  for="topic-two"
-                  class="mb-2 flex items-center justify-between text-[11px] font-semibold max-sm:min-h-[29px] max-sm:flex-wrap max-sm:gap-x-[5px] max-sm:gap-y-0.5"
-                  >Secondary topic <span class="text-[10px] font-normal text-muted">Recommended</span></label
+                <label for="topic-two" class="mb-2 flex items-baseline justify-between gap-2 text-[14px] font-semibold"
+                  >Secondary topic <span class="text-[13px] font-normal text-muted">Recommended</span></label
                 ><select
                   id="topic-two"
                   v-model="selectedTopic2"
-                  class="min-h-[41px] w-full appearance-none rounded-[7px] border border-steel-350 bg-steel-50 bg-chevron bg-[length:13px] bg-[position:right_10px_center] bg-no-repeat py-2 pl-[11px] pr-[30px] text-[12px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:min-h-11 max-sm:pl-2 max-sm:pr-[25px]"
+                  class="min-h-11 w-full appearance-none rounded-lg border border-steel-350 bg-steel-50 bg-chevron bg-[length:16px] bg-[position:right_12px_center] bg-no-repeat py-2 pl-3 pr-10 text-[15px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:text-[16px]"
                   :disabled="!selectedGenre"
                   @change="onTopicSelect"
                 >
@@ -387,71 +369,65 @@
                 </select>
               </div>
             </div>
-            <div class="mt-2.5 flex flex-wrap items-center justify-between gap-2.5">
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
               <button
-                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent-300 bg-accent-soft px-4 py-2.5 text-[12px] font-[650] text-accent-700 enabled:hover:border-accent-400 enabled:hover:bg-accent-100 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:w-full"
+                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent-300 bg-accent-soft px-4 py-2.5 text-[14px] font-[650] text-accent-700 enabled:hover:border-accent-400 enabled:hover:bg-accent-100 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:w-full"
                 :disabled="!selectedGenre"
                 @click="generateRandomTopics"
               >
-                <UiIcon class="size-[17px]" name="shuffle" /> Random topics
+                <UiIcon class="size-[18px]" name="shuffle" /> Random topics
               </button>
               <a
-                class="py-[5px] text-[11px] text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:py-2.5"
+                class="inline-flex min-h-11 items-center text-[14px] text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:w-full max-sm:justify-center"
                 href="#topics"
-                >Browse topic library <span class="ml-[5px]" aria-hidden="true">↓</span></a
+                >Browse topic library <span class="ml-1.5" aria-hidden="true">↓</span></a
               >
             </div>
-            <div
-              class="mt-4 flex items-center justify-between gap-3 border-t border-line pt-[19px] max-sm:mt-3 max-sm:flex-wrap max-sm:pt-4"
-            >
-              <div class="flex items-center gap-[9px]">
-                <span class="rounded-lg bg-accent-soft p-[9px] text-denim-500 max-lg:hidden max-sm:block"
-                  ><UiIcon class="size-[17px]" name="sparkles"
+            <div class="mt-5 flex items-center justify-between gap-4 border-t border-line pt-5 max-sm:flex-wrap">
+              <div class="flex items-center gap-3">
+                <span class="rounded-[10px] bg-accent-soft p-2.5 text-denim-500 max-lg:hidden max-sm:block"
+                  ><UiIcon class="size-5" name="sparkles"
                 /></span>
                 <div>
-                  <h3 class="mb-[3px] text-[12px] font-semibold max-sm:text-[13px]">A name to remember</h3>
-                  <p
-                    class="text-[10px] text-muted max-lg:max-w-[145px] max-lg:leading-[1.6] max-md:max-w-none max-sm:text-[11px]"
-                  >
-                    Turn your combination into game name ideas.
-                  </p>
+                  <h3 class="mb-0.5 text-[15px] font-semibold">A name to remember</h3>
+                  <p class="text-[14px] text-muted">Turn your combination into game name ideas.</p>
                 </div>
               </div>
               <button
-                class="inline-flex items-center justify-center gap-[7px] whitespace-nowrap rounded-[7px] border border-accent-700 bg-accent px-[13px] py-[11px] text-[11px] font-semibold text-white enabled:hover:bg-accent-700 enabled:hover:shadow-button focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-[.55] motion-safe:transition max-sm:min-h-[43px] max-sm:flex-[1_0_100%] max-sm:text-[12px]"
+                class="inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-accent-700 bg-accent px-4 py-2.5 text-[14px] font-semibold text-white enabled:hover:bg-accent-700 enabled:hover:shadow-button focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-[.55] motion-safe:transition max-sm:flex-[1_0_100%]"
                 :disabled="!selectedTopic || isLoading"
                 @click="handleGenerateGameNames"
               >
-                <UiIcon class="size-3.5" name="sparkles" />{{ isLoading ? 'Generating…' : 'Generate names' }}
+                <UiIcon class="size-4" name="sparkles" />{{ isLoading ? 'Generating…' : 'Generate names' }}
               </button>
             </div>
-            <div v-if="isLoading" class="mt-[18px] h-[3px] overflow-hidden rounded bg-steel-250" role="status">
+            <div v-if="isLoading" class="mt-5 h-1 overflow-hidden rounded bg-steel-250" role="status">
               <span class="block h-full w-2/5 bg-accent motion-safe:animate-loading"></span
               ><span class="sr-only">Generating game names</span>
             </div>
             <p
               v-if="generationError"
-              class="mt-3.5 rounded-md bg-danger-soft px-3 py-2.5 text-[12px] text-danger"
+              class="mt-4 rounded-lg bg-danger-soft px-3.5 py-3 text-[14px] text-danger"
               role="alert"
             >
               {{ generationError }}
             </p>
-            <div v-if="generatedGameNames.length" class="mt-5 border-t border-line pt-[18px]" aria-live="polite">
-              <p class="mb-3 text-[10px] font-bold tracking-[1.5px] text-muted">A FEW IDEAS FOR YOUR NEXT RELEASE</p>
-              <ol class="grid grid-cols-2 gap-2">
+            <div v-if="generatedGameNames.length" class="mt-5 border-t border-line pt-5" aria-live="polite">
+              <p class="mb-3 text-[12px] font-bold tracking-[1.5px] text-muted">A FEW IDEAS FOR YOUR NEXT RELEASE</p>
+              <ol class="grid grid-cols-2 gap-2 max-sm:grid-cols-1">
                 <li
                   v-for="(name, index) in generatedGameNames"
                   :key="index"
-                  class="flex items-baseline gap-[9px] rounded-md bg-steel-150 p-[11px] text-[12px]"
+                  class="flex items-baseline gap-2.5 rounded-lg bg-steel-150 px-3.5 py-3 text-[15px]"
                 >
-                  <span class="text-[10px] text-steel-550">{{ String(index + 1).padStart(2, '0') }}</span
+                  <span class="text-[12px] tabular-nums text-muted">{{ String(index + 1).padStart(2, '0') }}</span
                   >{{ name.replace(/"/g, '') }}
                 </li>
               </ol>
             </div>
           </section>
-          <p class="-mt-1 text-center text-[10px] text-steel-700 max-sm:-mt-[5px]">
-            <span class="mr-[5px] text-steel-550" aria-hidden="true">✳</span> A little planning goes a long way. Happy
+          <p class="-mt-1 text-center text-[13px] text-muted">
+            <span class="mr-1.5 text-steel-500" aria-hidden="true">✳</span> A little planning goes a long way. Happy
             developing.
           </p>
         </div>
@@ -459,42 +435,40 @@
 
       <section
         id="topics"
-        class="mt-6 rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:mt-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
+        class="mt-6 rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:mt-5 max-lg:p-5 max-sm:mt-4 max-sm:rounded-[14px] max-sm:px-4 max-sm:py-5"
         aria-labelledby="topics-heading"
       >
-        <div
-          class="flex items-center justify-between gap-5 max-md:gap-4 max-sm:flex-col max-sm:items-stretch max-sm:gap-0"
-        >
+        <div class="flex items-center justify-between gap-5 max-sm:flex-col max-sm:items-stretch max-sm:gap-0">
           <div>
-            <div class="flex items-center gap-2.5">
+            <div class="flex items-center gap-3">
               <span
-                class="inline-flex size-[25px] shrink-0 items-center justify-center rounded-[7px] bg-steel-200 text-[11px] font-bold text-muted"
+                class="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-steel-200 text-[12px] font-bold text-muted"
                 >03</span
               >
-              <h2 id="topics-heading" class="text-[17px] font-[650] leading-[1.4] tracking-[-0.5px] max-sm:text-[16px]">
+              <h2 id="topics-heading" class="text-[20px] font-[650] leading-snug tracking-[-0.4px] max-sm:text-[18px]">
                 Find your inspiration
               </h2>
-              <span class="rounded-[5px] bg-steel-200 px-[7px] py-[3px] text-[11px] text-muted">{{
+              <span class="rounded-md bg-steel-200 px-2 py-0.5 text-[13px] font-semibold text-muted">{{
                 compatibleTopics.length
               }}</span>
             </div>
-            <p class="mb-[17px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:text-[11px]">
+            <p class="mb-5 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-4 max-sm:text-[14px]">
               Topics that fit <strong class="font-semibold text-denim-600">{{ primaryGenre?.name }}</strong
               >. Pick two to build your concept.
             </p>
           </div>
           <div
-            class="flex min-w-[240px] items-center gap-[9px] rounded-lg border border-line bg-steel-50 px-2.5 focus-within:border-accent focus-within:outline focus-within:outline-[3px] focus-within:outline-accent/25 max-md:w-[210px] max-md:min-w-[180px] max-sm:mb-[15px] max-sm:w-full"
+            class="flex w-[280px] shrink-0 items-center gap-2.5 rounded-lg border border-line bg-steel-50 px-3 focus-within:border-accent focus-within:outline focus-within:outline-[3px] focus-within:outline-accent/25 max-md:w-[240px] max-sm:mb-4 max-sm:w-full"
           >
-            <UiIcon class="size-3.5 text-steel-550" name="search" /><input
+            <UiIcon class="size-4 text-muted" name="search" /><input
               v-model="topicSearch"
-              class="h-[38px] w-full min-w-0 bg-transparent text-[12px] text-ink focus:outline-none [&::-webkit-search-cancel-button]:hidden max-sm:h-[42px] max-sm:text-[13px]"
+              class="h-11 w-full min-w-0 bg-transparent text-[15px] text-ink placeholder:text-muted focus:outline-none [&::-webkit-search-cancel-button]:hidden max-sm:text-[16px]"
               type="search"
               aria-label="Search compatible topics"
               placeholder="Find a topic…"
             /><button
               v-if="topicSearch"
-              class="inline-flex size-6 shrink-0 items-center justify-center rounded-[7px] p-[5px] text-muted focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
+              class="inline-flex size-8 shrink-0 items-center justify-center rounded-lg p-1.5 text-muted hover:bg-steel-150 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
               aria-label="Clear topic search"
               @click="topicSearch = ''"
             >
@@ -503,20 +477,20 @@
           </div>
         </div>
         <div
-          class="flex min-h-[53px] items-center gap-3 border-t border-line text-[10px] text-muted max-sm:flex-wrap max-sm:gap-2 max-sm:py-[11px]"
+          class="flex min-h-14 flex-wrap items-center gap-x-3 gap-y-2 border-t border-line py-3 text-[13px] text-muted"
         >
-          <span class="text-[10px] font-semibold tracking-[1px] max-sm:hidden">{{
+          <span class="text-[12px] font-bold tracking-[1px] max-sm:hidden">{{
             topicSearch ? `${filteredTopics.length} matching topics` : 'COMPATIBLE TOPICS'
           }}</span>
-          <div v-if="selectedTopicObjs.length" class="flex flex-wrap gap-[5px]">
+          <div v-if="selectedTopicObjs.length" class="flex flex-wrap gap-2">
             <button
               v-for="topic in selectedTopicObjs"
               :key="topic.id"
-              class="flex items-center gap-[5px] rounded-[5px] border border-accent-200 bg-accent-soft px-[7px] py-1 text-[10px] text-denim-700 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:p-1.5"
+              class="flex min-h-8 items-center gap-1.5 rounded-md border border-accent-200 bg-accent-soft px-2.5 py-1 text-[13px] text-denim-700 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
               :aria-label="`Remove ${topic.name}`"
               @click="toggleTopic(topic.id)"
             >
-              {{ getTopicIcon(topic.name) }} {{ topic.name }}<UiIcon class="size-2.5" name="close" />
+              {{ getTopicIcon(topic.name) }} {{ topic.name }}<UiIcon class="size-3" name="close" />
             </button>
           </div>
           <span v-else>Click a topic to select it</span
@@ -524,14 +498,14 @@
         </div>
         <div
           v-if="filteredTopics.length"
-          class="grid max-h-[300px] grid-cols-7 gap-[7px] overflow-y-auto pb-[5px] pl-0.5 pr-[7px] pt-0.5 [scrollbar-color:theme(colors.steel.400)_transparent] [scrollbar-width:thin] max-lg:grid-cols-6 max-md:grid-cols-5 max-sm:max-h-[360px] max-sm:grid-cols-2"
+          class="grid max-h-[372px] grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-2 overflow-y-auto pb-1.5 pl-0.5 pr-2 pt-0.5 [scrollbar-color:theme(colors.steel.400)_transparent] [scrollbar-width:thin] max-sm:max-h-[440px] max-sm:grid-cols-2"
           role="group"
           aria-label="Compatible topics"
         >
           <button
             v-for="topic in filteredTopics"
             :key="topic.id"
-            class="flex min-h-[42px] items-center gap-2 rounded-[7px] border px-[9px] py-2.5 text-left text-[11px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-11 max-sm:text-[12px]"
+            class="flex min-h-12 items-center gap-2.5 rounded-lg border px-3 py-2 text-left text-[14px] leading-snug focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
             :class="
               isSelectedTopic(topic.id)
                 ? 'border-accent-300 bg-accent-soft text-accent-700'
@@ -540,17 +514,17 @@
             :aria-pressed="isSelectedTopic(topic.id)"
             @click="toggleTopic(topic.id)"
           >
-            <span class="text-[18px] leading-none" aria-hidden="true">{{ getTopicIcon(topic.name) }}</span
+            <span class="text-[20px] leading-none" aria-hidden="true">{{ getTopicIcon(topic.name) }}</span
             ><span class="[overflow-wrap:anywhere]">{{ topic.name }}</span
-            ><UiIcon v-if="isSelectedTopic(topic.id)" class="ml-auto size-3" name="check" />
+            ><UiIcon v-if="isSelectedTopic(topic.id)" class="ml-auto size-3.5" name="check" />
           </button>
         </div>
-        <div v-else class="px-4 py-8 text-center text-muted">
-          <UiIcon class="mx-auto mb-3 size-[25px]" name="search" />
-          <h3 class="text-[14px] text-ink">No topics found for “{{ topicSearch }}”</h3>
-          <p class="my-2 text-[13px]">Try another search or choose a different genre.</p>
+        <div v-else class="px-4 py-10 text-center text-muted">
+          <UiIcon class="mx-auto mb-3 size-7" name="search" />
+          <h3 class="text-[16px] font-semibold text-ink">No topics found for “{{ topicSearch }}”</h3>
+          <p class="my-2 text-[14px]">Try another search or choose a different genre.</p>
           <button
-            class="inline-flex items-center justify-center gap-1.5 py-[7px] text-[11px] font-semibold text-denim-600 hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:py-2.5"
+            class="inline-flex min-h-10 items-center justify-center gap-1.5 px-2 text-[14px] font-semibold text-denim-600 hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
             @click="topicSearch = ''"
           >
             Clear search
@@ -558,9 +532,9 @@
         </div>
       </section>
       <footer
-        class="flex items-center justify-between gap-[18px] pb-[30px] pt-[27px] text-[10px] text-steel-650 max-sm:flex-wrap max-sm:justify-center max-sm:gap-2.5 max-sm:px-2.5 max-sm:py-[23px] max-sm:text-center"
+        class="flex items-center justify-between gap-5 pb-8 pt-7 text-[13px] text-muted max-sm:flex-wrap max-sm:justify-center max-sm:gap-3 max-sm:px-2 max-sm:py-6 max-sm:text-center"
       >
-        <span class="text-muted max-sm:basis-full">Made for the love of game development.</span
+        <span class="max-sm:basis-full">Made for the love of game development.</span
         ><span>Fan-made companion · Not affiliated with Eggcode</span
         ><a
           class="hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"

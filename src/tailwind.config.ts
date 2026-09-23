@@ -16,7 +16,8 @@ export default <Partial<Config>>{
         paper: '#f4f6f9',
         surface: '#ffffff',
         ink: '#273449',
-        muted: '#718096',
+        // Secondary text. #718096 was 3.7:1 on the page background; this passes WCAG AA (4.5:1) on every surface.
+        muted: '#5f6c80',
         line: '#e5e9f0',
         accent: {
           DEFAULT: '#4268c6',
