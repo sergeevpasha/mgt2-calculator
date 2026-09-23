@@ -19,7 +19,7 @@
             >Mad Games Tycoon <b class="text-accent">2</b
             ><small
               class="mt-0.5 block text-[12px] font-semibold uppercase tracking-[1.3px] text-muted max-sm:tracking-[0.8px]"
-              >The studio companion</small
+              >Design calculator</small
             ></span
           >
         </a>
@@ -38,32 +38,19 @@
             >Topic library <UiIcon class="size-3.5 max-sm:hidden" name="arrow"
           /></a>
         </nav>
-        <span class="ml-auto flex items-center gap-2 text-[14px] text-muted max-md:hidden"
-          ><span class="size-1.5 rounded-full bg-denim-400"></span> Made for the game</span
-        >
       </div>
     </header>
 
     <main class="mx-auto max-w-[1344px] px-8 max-lg:px-6 max-sm:px-3">
-      <div class="flex items-center justify-between gap-6 pb-8 pt-10 max-sm:px-1 max-sm:pb-5 max-sm:pt-6">
-        <div>
-          <p class="mb-3 text-[12px] font-bold tracking-[1.5px] text-accent max-sm:mb-2 max-sm:tracking-[1.2px]">
-            LESS GUESSWORK. MORE GREAT GAMES.
-          </p>
-          <h1
-            class="text-[clamp(30px,3.2vw,44px)] font-[650] leading-[1.15] tracking-[-1.5px] max-sm:text-[28px] max-sm:tracking-[-0.8px]"
-          >
-            Build your next <em class="font-serif font-normal text-accent">big hit.</em>
-          </h1>
-          <p class="mt-3 text-[17px] leading-relaxed text-muted max-sm:mt-2 max-sm:text-[15px]">
-            Find your genre, dial in the design, and give your next game a name.
-          </p>
-        </div>
-        <div class="flex shrink-0 items-center gap-4 pr-3 text-[15px] leading-[1.7] text-muted max-sm:hidden">
-          <UiIcon class="size-10 stroke-1 text-steel-500" name="sliders" /><span
-            >Your ideas.<br /><strong class="font-semibold text-steel-900">The right settings.</strong></span
-          >
-        </div>
+      <div class="pb-8 pt-10 max-sm:px-1 max-sm:pb-5 max-sm:pt-6">
+        <h1
+          class="text-[clamp(30px,3.2vw,44px)] font-[650] leading-[1.15] tracking-[-1.5px] max-sm:text-[28px] max-sm:tracking-[-0.8px]"
+        >
+          Build your next <em class="font-serif font-normal text-accent">big hit.</em>
+        </h1>
+        <p class="mt-3 text-[17px] leading-relaxed text-muted max-sm:mt-2 max-sm:text-[15px]">
+          Pick a genre to see its slider values, target groups and compatible topics.
+        </p>
       </div>
 
       <div
@@ -87,7 +74,7 @@
             <span class="whitespace-nowrap text-[13px] text-muted">{{ genresList.length }} genres</span>
           </div>
           <p class="mb-6 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-5 max-sm:text-[14px]">
-            Every great game starts with a good combination.
+            Pick a primary genre, then a subgenre. Leaving the subgenre empty costs review points.
           </p>
           <div class="mb-3 flex items-baseline justify-between gap-3">
             <span id="primary-label" class="text-[15px] font-semibold">Primary genre</span
@@ -231,16 +218,23 @@
               </div>
               <button
                 class="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-steel-350 bg-white px-3.5 py-2 text-[14px] font-semibold text-steel-900 hover:border-accent-300 hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-11 max-sm:min-w-11 max-sm:p-2.5"
-                :aria-label="copyStatus || 'Copy design settings'"
-                :title="copyStatus || 'Copy design settings'"
+                :aria-label="copyStatus === 'copied' ? 'Copied!' : 'Copy design settings'"
+                :title="copyStatus === 'copied' ? 'Copied!' : 'Copy design settings'"
                 @click="copySettings"
               >
-                <UiIcon class="size-4" :name="copyStatus === 'Copied!' ? 'check' : 'copy'" /><span
+                <UiIcon class="size-4" :name="copyStatus === 'copied' ? 'check' : 'copy'" /><span
                   class="max-sm:hidden"
-                  >{{ copyStatus === 'Copied!' ? 'Copied!' : 'Copy settings' }}</span
+                  >{{ copyStatus === 'copied' ? 'Copied!' : 'Copy settings' }}</span
                 >
               </button>
             </div>
+            <p
+              v-if="copyStatus === 'failed'"
+              class="mb-6 rounded-lg bg-danger-soft px-3.5 py-3 text-[14px] text-danger max-sm:mb-5"
+              role="alert"
+            >
+              Couldn’t copy. Select the values and copy them yourself.
+            </p>
             <div class="mb-4 flex items-center justify-between gap-3">
               <h3 class="text-[15px] font-[650]">Development priority</h3>
               <span class="text-[13px] text-muted"
@@ -286,16 +280,11 @@
                 <DesignValues :values="currentFocus.direction" :labels="focusLabels.direction" type="direction" />
               </section>
             </template>
-            <div class="flex items-center justify-between gap-4 border-t border-line py-4 text-[13px] text-muted">
-              <span class="flex items-center gap-2.5"
-                ><UiIcon class="size-4 shrink-0 text-steel-600 max-sm:hidden" name="sliders" /> Match these values to
-                your in-game sliders. Assumes the random game concept and genre combination options are off.</span
-              >
-              <span class="flex items-center gap-2 whitespace-nowrap"
-                ><i class="size-1.5 rounded-full bg-accent-500"></i> Live</span
-              >
-            </div>
-            <span class="sr-only" role="status">{{ copyStatus }}</span>
+            <p class="flex items-center gap-2.5 border-t border-line py-4 text-[13px] text-muted">
+              <UiIcon class="size-4 shrink-0 text-steel-600 max-sm:hidden" name="sliders" /> Set your in-game sliders to
+              these values. They assume the random game concept and genre combination options are off.
+            </p>
+            <span class="sr-only" role="status">{{ copyStatus === 'copied' ? 'Copied!' : '' }}</span>
           </section>
 
           <section
@@ -312,13 +301,14 @@
                   id="concept-heading"
                   class="text-[20px] font-[650] leading-snug tracking-[-0.4px] max-sm:text-[18px]"
                 >
-                  Make it your own
+                  Pick your topics
                 </h2>
               </div>
               <UiIcon class="size-6 text-steel-500" name="sparkles" />
             </div>
             <p class="mb-6 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-5 max-sm:text-[14px]">
-              Set the scene with two compatible topics.
+              Only topics that fit <strong class="font-semibold text-denim-600">{{ primaryGenre?.name }}</strong> are
+              listed. Pick two, since a single topic costs review points.
             </p>
             <div
               class="grid grid-cols-[minmax(0,1fr)_16px_minmax(0,1fr)] items-end gap-3 max-sm:grid-cols-1 max-sm:gap-4"
@@ -389,8 +379,8 @@
                   ><UiIcon class="size-5" name="sparkles"
                 /></span>
                 <div>
-                  <h3 class="mb-0.5 text-[15px] font-semibold">A name to remember</h3>
-                  <p class="text-[14px] text-muted">Turn your combination into game name ideas.</p>
+                  <h3 class="mb-0.5 text-[15px] font-semibold">Need a name?</h3>
+                  <p class="text-[14px] text-muted">Get 12 AI-generated title ideas for your genre and topics.</p>
                 </div>
               </div>
               <button
@@ -413,7 +403,7 @@
               {{ generationError }}
             </p>
             <div v-if="generatedGameNames.length" class="mt-5 border-t border-line pt-5" aria-live="polite">
-              <p class="mb-3 text-[12px] font-bold tracking-[1.5px] text-muted">A FEW IDEAS FOR YOUR NEXT RELEASE</p>
+              <p class="mb-3 text-[12px] font-bold tracking-[1.5px] text-muted">NAME IDEAS</p>
               <ol class="grid grid-cols-2 gap-2 max-sm:grid-cols-1">
                 <li
                   v-for="(name, index) in generatedGameNames"
@@ -426,10 +416,6 @@
               </ol>
             </div>
           </section>
-          <p class="-mt-1 text-center text-[13px] text-muted">
-            <span class="mr-1.5 text-steel-500" aria-hidden="true">✳</span> A little planning goes a long way. Happy
-            developing.
-          </p>
         </div>
       </div>
 
@@ -446,7 +432,7 @@
                 >03</span
               >
               <h2 id="topics-heading" class="text-[20px] font-[650] leading-snug tracking-[-0.4px] max-sm:text-[18px]">
-                Find your inspiration
+                Topic library
               </h2>
               <span class="rounded-md bg-steel-200 px-2 py-0.5 text-[13px] font-semibold text-muted">{{
                 compatibleTopics.length
@@ -454,7 +440,7 @@
             </div>
             <p class="mb-5 mt-2 text-[15px] leading-relaxed text-muted max-sm:mb-4 max-sm:text-[14px]">
               Topics that fit <strong class="font-semibold text-denim-600">{{ primaryGenre?.name }}</strong
-              >. Pick two to build your concept.
+              >. Pick two to use in your game.
             </p>
           </div>
           <div
@@ -531,12 +517,8 @@
           </button>
         </div>
       </section>
-      <footer
-        class="flex items-center justify-between gap-5 pb-8 pt-7 text-[13px] text-muted max-sm:flex-wrap max-sm:justify-center max-sm:gap-3 max-sm:px-2 max-sm:py-6 max-sm:text-center"
-      >
-        <span class="max-sm:basis-full">Made for the love of game development.</span
-        ><span>Fan-made companion · Not affiliated with Eggcode</span
-        ><a
+      <footer class="flex justify-end pb-8 pt-7 text-[13px] text-muted max-sm:justify-center max-sm:px-2 max-sm:py-6">
+        <a
           class="hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
           href="#top"
           >Back to top ↑</a
@@ -584,7 +566,7 @@ const selectedTopic2 = ref(initialTopic2 === initialTopic ? '' : initialTopic2);
 const topicSearch = ref('');
 const generatedGameNames = ref<string[]>([]);
 const generationError = ref('');
-const copyStatus = ref('');
+const copyStatus = ref<'' | 'copied' | 'failed'>('');
 const isLoading = ref(false);
 const { generateGameNames } = useOpenAI();
 
@@ -703,19 +685,22 @@ const copySettings = async (): Promise<void> => {
   const genre = primaryGenre.value;
   const focus = currentFocus.value;
   if (!genre || !focus) return;
+  // Label every value so a pasted note still says which slider is which.
+  const withLabels = (values: number[], labels: string[], unit = ''): string =>
+    values.map((value, index) => `${labels[index]} ${value}${unit}`).join(' / ');
   const text = [
     genre.name + (selectedSubgenre.value !== 'None' ? ` + ${selectedSubgenre.value}` : ''),
-    `Development priority: ${genre.designPriority.map((value, index) => `${priorityLabels[index]} ${value}%`).join(' / ')}`,
-    `Design focus 1: ${focus.focus1.join(' / ')}`,
-    `Design focus 2: ${focus.focus2.join(' / ')}`,
-    `Direction: ${focus.direction.join(' / ')}`,
+    `Development priority: ${withLabels(genre.designPriority, priorityLabels, '%')}`,
+    `Design focus 1: ${withLabels(focus.focus1, focusLabels.focus1)}`,
+    `Design focus 2: ${withLabels(focus.focus2, focusLabels.focus2)}`,
+    `Design direction: ${withLabels(focus.direction, focusLabels.direction)}`,
   ].join('\n');
   try {
     await navigator.clipboard.writeText(text);
-    copyStatus.value = 'Copied!';
+    copyStatus.value = 'copied';
     trackEvent('copy_settings', { subgenre: selectedSubgenre.value });
   } catch {
-    copyStatus.value = 'Unable to copy. Please copy the displayed values manually.';
+    copyStatus.value = 'failed';
   }
 };
 </script>
