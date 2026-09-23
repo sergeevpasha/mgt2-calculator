@@ -1,23 +1,23 @@
-# 🎮 Mad Games Tycoon 2 Calculator
+# Mad Games Tycoon 2 Calculator
 
-A web application to help players of Mad Games Tycoon 2 calculate optimal game design parameters and generate creative game names.
+A calculator for Mad Games Tycoon 2. Pick a genre and subgenre to see the design slider values, target groups and compatible topics, then get name ideas for your game.
 
-## ✨ Features
+## Features
 
-- 🎯 Genre and subgenre selection
-- 🎲 Topic selection based on genre compatibility
-- 🎪 Random topic generation
-- 🤖 Game name generation using AI
-- 📊 Detailed genre information display
+- Development priority, design focus and design direction values for every genre and subgenre
+- Target groups and compatible topics for each genre
+- Topic search and random topic picks
+- Game name ideas from the OpenAI API
+- Shareable links: the selection is kept in the URL
 
-## 🚀 Getting Started
+## Getting started
 
 ### Prerequisites
 
-- 🐳 Docker and Docker Compose (for containerized development)
-- 🔧 Make (optional, for using Makefile commands)
+- Docker and Docker Compose
+- Make (optional, for the Makefile shortcuts)
 
-### 🔐 Environment Setup
+### Environment setup
 
 1. Copy the example environment file:
 ```bash
@@ -33,7 +33,7 @@ DOCKER_NODEJS_PORT=3023
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-## 🐳 Docker Development
+## Development with Docker
 
 The Dockerfile's default startup command runs `yarn install --immutable` with `src/` mounted at `/var/www`, then starts the Nuxt dev server (`yarn dev`). Dependencies are installed into `src/node_modules`. After pulling dependency changes or switching branches, restart the container to sync dependencies. Startup fails if installation would require changing `yarn.lock`. Custom commands passed to `docker compose run` replace this default command and skip automatic installation.
 
@@ -59,7 +59,7 @@ docker compose exec app bash
 docker compose down
 ```
 
-## 🔧 Using Makefile
+## Makefile shortcuts
 
 ```bash
 make up      # start the container (runs the dev server)
