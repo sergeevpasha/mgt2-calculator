@@ -18,15 +18,14 @@ const hits = new Map<string, number[]>();
 
 const isRateLimited = (ip: string): boolean => {
   const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  const recent = (hits.get(ip) ?? []).filter(t => now - t < RATE_WINDOW_MS);
   recent.push(now);
   hits.set(ip, recent);
   return recent.length > RATE_LIMIT;
 };
 
 // Keep input bounded so a caller can't smuggle a huge prompt through our key.
-const clean = (value: unknown, max = 60): string =>
-  typeof value === 'string' ? value.trim().slice(0, max) : '';
+const clean = (value: unknown, max = 60): string => (typeof value === 'string' ? value.trim().slice(0, max) : '');
 
 export default defineEventHandler(async (event): Promise<string[]> => {
   const ip = getRequestIP(event, { xForwardedFor: true }) ?? 'unknown';
@@ -49,19 +48,14 @@ export default defineEventHandler(async (event): Promise<string[]> => {
     throw createError({ statusCode: 400, statusMessage: 'genre and topic are required' });
   }
 
-  let prompt = `Given a ${genre}`;
-  if (subgenre && subgenre !== 'None') {
-    prompt += ` ${subgenre}`;
-  }
-  prompt += ` game with ${topic}`;
-  if (subtopic) {
-    prompt += ` and ${subtopic}`;
-  }
-  prompt += ` themes, generate 12 creative and catchy game titles with the following word count distribution:
-- 4 one-word titles
-- 4 two-word titles
-- 4 three-word titles
-Return only the titles, one per line.`;
+  const genreLine = subgenre && subgenre !== 'None' ? `${genre} (subgenre: ${subgenre})` : genre;
+  const topicLine = subtopic ? `Topics: ${topic} and ${subtopic}` : `Topic: ${topic}`;
+  // Exact word counts made the model pad titles with filler ("Robotic Onslaught Chronicles"),
+  // so ask for a mix of lengths and name the stock words to avoid.
+  const prompt = `Genre: ${genreLine}
+${topicLine}
+
+Suggest 12 titles for this game. Mix lengths: a few single words, several two or three words, a few with a short subtitle after a colon. Avoid stock title words such as Chronicles, Saga, Quest, Legends, Odyssey, Mayhem, Fury, Rampage, Onslaught, Unveiled, Galore and Showdown, and don't just join the genre and topic names. Return only the titles, one per line.`;
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -70,17 +64,18 @@ Return only the titles, one per line.`;
       Authorization: `Bearer ${config.openaiApiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-5.4-mini',
       messages: [
         {
           role: 'system',
           content:
-            "You are a creative game title generator. Generate catchy and memorable game titles that reflect the game's genre and themes. Follow the exact word count distribution requested in the prompt.",
+            'You name video games. Suggest titles that could sit on a real store shelf: specific to the premise, easy to say, no filler.',
         },
         { role: 'user', content: prompt },
       ],
-      temperature: 0.8,
-      max_tokens: 150,
+      reasoning_effort: 'low',
+      // Reasoning tokens count toward this cap. Too small a cap returns no titles at all.
+      max_completion_tokens: 2000,
     }),
   });
 
@@ -91,12 +86,17 @@ Return only the titles, one per line.`;
 
   const data = await response.json();
   const content: unknown = data?.choices?.[0]?.message?.content;
-  if (typeof content !== 'string') {
-    return [];
+  const titles =
+    typeof content === 'string'
+      ? content
+          .split('\n')
+          // Models sometimes number or bullet the list even when told not to.
+          .map(name => name.replace(/^\s*(?:\d+[.)]|[-*•])\s+/, '').trim())
+          .filter(name => name.length > 0)
+      : [];
+  if (!titles.length) {
+    throw createError({ statusCode: 502, statusMessage: 'No titles returned' });
   }
 
-  return content
-    .split('\n')
-    .map((name) => name.trim())
-    .filter((name) => name.length > 0);
+  return titles;
 });
