@@ -34,8 +34,13 @@
           >
           <a
             class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition"
+            href="#combinations"
+            >Best combos <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
+          /></a>
+          <a
+            class="relative flex items-center gap-1.5 text-muted hover:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:hidden"
             href="#topics"
-            >Topic library <UiIcon class="size-[13px] max-sm:hidden" name="arrow"
+            >Topic library <UiIcon class="size-[13px]" name="arrow"
           /></a>
         </nav>
         <span class="ml-auto flex items-center gap-[7px] text-[12px] text-muted max-md:hidden"
@@ -45,17 +50,19 @@
     </header>
 
     <main class="mx-auto max-w-[1344px] px-8 max-lg:px-6 max-sm:px-3.5">
-      <div class="flex items-center justify-between pb-[30px] pt-[35px] max-sm:px-[5px] max-sm:pb-[25px] max-sm:pt-7">
+      <div class="flex items-center justify-between pb-[30px] pt-[35px] max-sm:px-[5px] max-sm:pb-4 max-sm:pt-5">
         <div>
-          <p class="mb-[9px] text-[10px] font-bold tracking-[1.5px] text-accent max-sm:tracking-[1.2px]">
+          <p class="mb-[9px] text-[10px] font-bold tracking-[1.5px] text-accent max-sm:mb-1.5 max-sm:tracking-[1.2px]">
             LESS GUESSWORK. MORE GREAT GAMES.
           </p>
           <h1
-            class="text-[clamp(28px,3vw,38px)] font-[650] leading-[1.18] tracking-[-1.8px] max-sm:text-[31px] max-sm:tracking-[-1.2px]"
+            class="text-[clamp(28px,3vw,38px)] font-[650] leading-[1.18] tracking-[-1.8px] max-sm:text-[26px] max-sm:tracking-[-1px]"
           >
             Build your next <em class="font-serif font-normal text-accent">big hit.</em>
           </h1>
-          <p class="mt-[11px] text-[13px] text-muted max-sm:max-w-[285px] max-sm:text-[12px] max-sm:leading-[1.7]">
+          <p
+            class="mt-[11px] text-[13px] text-muted max-sm:mt-2 max-sm:max-w-[285px] max-sm:text-[12px] max-sm:leading-[1.6]"
+          >
             Find your genre, dial in the design, and give your next game a name.
           </p>
         </div>
@@ -108,7 +115,7 @@
                   : 'border-transparent bg-steel-100 hover:border-steel-350 hover:bg-steel-200'
               "
               :aria-pressed="selectedGenre === genre.id"
-              @click="selectedGenre = genre.id"
+              @click="selectGenre(genre.id)"
             >
               <span
                 v-if="selectedGenre === genre.id"
@@ -130,7 +137,10 @@
           </div>
 
           <template v-if="primaryGenre">
-            <div class="mt-[22px] border-t border-line pt-[22px] max-md:mt-[17px] max-md:pt-[17px]">
+            <div
+              ref="subgenresSection"
+              class="mt-[22px] border-t border-line pt-[22px] max-md:mt-[17px] max-md:pt-[17px]"
+            >
               <div class="mb-[11px] flex items-center justify-between text-[12px] font-semibold">
                 <span id="subgenre-label">Subgenre</span
                 ><span class="text-[11px] font-normal text-muted">Optional</span>
@@ -146,7 +156,7 @@
                       : 'border-line hover:bg-steel-150'
                   "
                   :aria-pressed="selectedSubgenre === sg"
-                  @click="selectedSubgenre = sg"
+                  @click="selectSubgenre(sg)"
                 >
                   <img
                     v-if="getGenreIconSrc(sg)"
@@ -181,6 +191,7 @@
           <section
             v-if="primaryGenre"
             id="design-settings"
+            ref="designSettingsSection"
             class="rounded-2xl border border-steel-350 bg-surface px-6 pt-6 text-ink shadow-card max-lg:px-5 max-lg:pt-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:pt-[18px]"
             aria-labelledby="recipe-heading"
           >
@@ -309,6 +320,54 @@
           </section>
 
           <section
+            v-if="primaryGenre && topicPairs.length"
+            id="combinations"
+            class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
+            aria-labelledby="combinations-heading"
+          >
+            <div class="flex items-end justify-between gap-2">
+              <div class="min-w-0">
+                <p class="mb-[5px] text-[10px] font-bold tracking-[1.5px] text-accent max-xs:text-[9px]">
+                  BEST COMBINATIONS
+                </p>
+                <h2
+                  id="combinations-heading"
+                  class="text-[17px] font-[650] leading-[1.4] tracking-[-0.5px] max-sm:text-[16px]"
+                >
+                  {{ primaryGenre.name }} topic pairs
+                </h2>
+              </div>
+              <span class="whitespace-nowrap pb-0.5 text-[11px] text-muted">{{ topicPairs.length }} pairs</span>
+            </div>
+            <p class="mb-[17px] mt-[9px] text-[12px] leading-[1.65] text-muted max-sm:text-[11px]">
+              Both topics in each pair fit {{ primaryGenre.name }}. Pick one to set your primary and secondary topic.
+            </p>
+            <div
+              class="flex max-h-[222px] flex-wrap gap-[7px] overflow-y-auto pb-[5px] pl-0.5 pr-[7px] pt-0.5 [scrollbar-color:theme(colors.steel.400)_transparent] [scrollbar-width:thin] max-sm:max-h-[244px]"
+              role="group"
+              aria-labelledby="combinations-heading"
+            >
+              <button
+                v-for="pair in topicPairs"
+                :key="pair.join('+')"
+                class="inline-flex min-h-[34px] items-center gap-1.5 rounded-[7px] border px-[9px] py-1.5 text-left text-[11px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 motion-safe:transition max-sm:min-h-[37px] max-sm:px-2"
+                :class="
+                  isSelectedPair(pair)
+                    ? 'border-accent-300 bg-accent-soft text-denim-700'
+                    : 'border-line hover:bg-steel-150'
+                "
+                :aria-label="`${pair[0]} and ${pair[1]}`"
+                :aria-pressed="isSelectedPair(pair)"
+                @click="selectPair(pair)"
+              >
+                {{ getTopicIcon(pair[0]) }} {{ pair[0] }}
+                <span class="text-steel-500" aria-hidden="true">+</span>
+                {{ getTopicIcon(pair[1]) }} {{ pair[1] }}
+              </button>
+            </div>
+          </section>
+
+          <section
             class="rounded-2xl border border-line bg-surface p-6 shadow-panel max-lg:p-5 max-sm:rounded-[13px] max-sm:px-4 max-sm:py-[18px]"
             aria-labelledby="concept-heading"
           >
@@ -343,6 +402,7 @@
                   v-model="selectedTopic"
                   class="min-h-[41px] w-full appearance-none rounded-[7px] border border-steel-350 bg-steel-50 bg-chevron bg-[length:13px] bg-[position:right_10px_center] bg-no-repeat py-2 pl-[11px] pr-[30px] text-[12px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:min-h-11 max-sm:pl-2 max-sm:pr-[25px]"
                   :disabled="!selectedGenre"
+                  @change="onTopicSelect"
                 >
                   <option value="">Choose a topic</option>
                   <option
@@ -366,6 +426,7 @@
                   v-model="selectedTopic2"
                   class="min-h-[41px] w-full appearance-none rounded-[7px] border border-steel-350 bg-steel-50 bg-chevron bg-[length:13px] bg-[position:right_10px_center] bg-no-repeat py-2 pl-[11px] pr-[30px] text-[12px] text-steel-900 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-accent/50 disabled:cursor-not-allowed disabled:opacity-50 motion-safe:transition max-sm:min-h-11 max-sm:pl-2 max-sm:pr-[25px]"
                   :disabled="!selectedGenre"
+                  @change="onTopicSelect"
                 >
                   <option value="">Choose a topic</option>
                   <option
@@ -565,21 +626,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, nextTick } from 'vue';
+import type { Ref } from 'vue';
+import { useGtag, useHead, useRoute, useRuntimeConfig } from '#imports';
 import type { Genre, Topic } from '~/types';
 import DesignValues from '~/components/DesignValues.vue';
 import DesignPriority from '~/components/DesignPriority.vue';
 import UiIcon from '~/components/UiIcon.vue';
-import genres from '~/data/genres';
+import genres, { getTopicPairs } from '~/data/genres';
 import { focusLabels, priorityLabels } from '~/data/designLabels';
 import { getGenreIconSrc, getTopicIcon } from '~/data/icons';
 import { useOpenAI } from '~/composables/useOpenAI';
 
+const { siteUrl } = useRuntimeConfig().public;
+useHead({ link: [{ rel: 'canonical', href: `${siteUrl}/` }] });
+
 const genresList: Genre[] = Object.values(genres);
-const selectedGenre = ref('action');
-const selectedSubgenre = ref('None');
-const selectedTopic = ref('');
-const selectedTopic2 = ref('');
+
+// The selection is mirrored in the query string (?genre=…&subgenre=…&topic=…&topic2=…), so a shared
+// link or a bookmark opens the same settings.
+const slugify = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+const fromSlug = (values: string[], slug: unknown): string | undefined => values.find(v => slugify(v) === slug);
+const query = useRoute().query;
+const initialGenre = genresList.find(g => g.id === query.genre) ?? genres.action;
+const initialTopic = fromSlug(initialGenre.topics, query.topic) ?? '';
+const initialTopic2 = fromSlug(initialGenre.topics, query.topic2) ?? '';
+
+const selectedGenre = ref(initialGenre.id);
+const selectedSubgenre = ref(fromSlug(initialGenre.subgenres, query.subgenre) ?? 'None');
+const selectedTopic = ref(initialTopic);
+const selectedTopic2 = ref(initialTopic2 === initialTopic ? '' : initialTopic2);
 const topicSearch = ref('');
 const generatedGameNames = ref<string[]>([]);
 const generationError = ref('');
@@ -616,6 +696,52 @@ watch(selectionKey, () => {
   generationError.value = '';
   copyStatus.value = '';
 });
+watch(selectionKey, () => {
+  const url = new URL(window.location.href);
+  const params = {
+    genre: selectedGenre.value,
+    subgenre: selectedSubgenre.value === 'None' ? '' : slugify(selectedSubgenre.value),
+    topic: slugify(selectedTopic.value),
+    topic2: slugify(selectedTopic2.value),
+  };
+  for (const [key, value] of Object.entries(params)) {
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
+  }
+  // Not a router navigation: Nuxt's scroll behavior would jump to the #hash target or to the top.
+  window.history.replaceState(window.history.state, '', url);
+});
+
+// Report calculator interactions to GA4. Without them, a visitor who finds their numbers in a few
+// seconds and leaves looks exactly like one who bounced.
+const { gtag } = useGtag();
+const trackEvent = (name: string, params: Record<string, string> = {}): void => {
+  gtag('event', name, { genre: primaryGenre.value?.name ?? '', ...params });
+};
+
+// Below the md breakpoint (921px) the columns stack, so the next step sits under the genre grid after
+// a tap. Scroll it into view; html's motion-safe:scroll-smooth decides whether that animates.
+const subgenresSection = ref<HTMLElement | null>(null);
+const designSettingsSection = ref<HTMLElement | null>(null);
+const revealOnStackedLayout = (section: Ref<HTMLElement | null>): void => {
+  if (window.matchMedia('(min-width: 921px)').matches) return;
+  nextTick(() => section.value?.scrollIntoView({ block: 'start' }));
+};
+
+const selectGenre = (id: string): void => {
+  selectedGenre.value = id;
+  trackEvent('select_genre');
+  revealOnStackedLayout(subgenresSection);
+};
+const selectSubgenre = (subgenre: string): void => {
+  selectedSubgenre.value = subgenre;
+  trackEvent('select_subgenre', { subgenre });
+  revealOnStackedLayout(designSettingsSection);
+};
+const onTopicSelect = (event: Event): void => {
+  const topic = (event.target as HTMLSelectElement).value;
+  if (topic) trackEvent('select_topic', { topic });
+};
 
 const isSelectedTopic = (id: string): boolean => id === selectedTopic.value || id === selectedTopic2.value;
 const toggleTopic = (id: string): void => {
@@ -624,6 +750,15 @@ const toggleTopic = (id: string): void => {
   else if (!selectedTopic.value) selectedTopic.value = id;
   else if (!selectedTopic2.value) selectedTopic2.value = id;
   else selectedTopic.value = id;
+  if (isSelectedTopic(id)) trackEvent('select_topic', { topic: id });
+};
+const topicPairs = computed(() => (primaryGenre.value ? getTopicPairs(primaryGenre.value) : []));
+const isSelectedPair = ([first, second]: [string, string]): boolean =>
+  isSelectedTopic(first) && isSelectedTopic(second);
+const selectPair = ([first, second]: [string, string]): void => {
+  selectedTopic.value = first;
+  selectedTopic2.value = second;
+  trackEvent('select_combination', { combination: `${first} + ${second}` });
 };
 const generateRandomTopics = (): void => {
   const topics = [...(primaryGenre.value?.topics || [])];
@@ -631,6 +766,7 @@ const generateRandomTopics = (): void => {
   const second = topics[Math.floor(Math.random() * topics.length)];
   selectedTopic.value = first ?? '';
   selectedTopic2.value = second ?? '';
+  trackEvent('random_topics');
 };
 const handleGenerateGameNames = async (): Promise<void> => {
   const genre = primaryGenre.value;
@@ -639,6 +775,7 @@ const handleGenerateGameNames = async (): Promise<void> => {
   const requestSelection = selectionKey.value;
   isLoading.value = true;
   generationError.value = '';
+  trackEvent('generate_names', { topic: topic.name, topic2: currentTopic2.value?.name ?? '' });
   try {
     const names = await generateGameNames(genre.name, topic.name, currentTopic2.value?.name, selectedSubgenre.value);
     if (requestSelection === selectionKey.value) generatedGameNames.value = names;
@@ -663,6 +800,7 @@ const copySettings = async (): Promise<void> => {
   try {
     await navigator.clipboard.writeText(text);
     copyStatus.value = 'Copied!';
+    trackEvent('copy_settings', { subgenre: selectedSubgenre.value });
   } catch {
     copyStatus.value = 'Unable to copy. Please copy the displayed values manually.';
   }

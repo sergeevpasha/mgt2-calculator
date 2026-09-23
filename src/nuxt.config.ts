@@ -6,6 +6,8 @@ export default defineNuxtConfig({
     'nuxt-gtag'
   ],
   gtag: {
+    // Local development shouldn't show up as site traffic.
+    enabled: process.env.NODE_ENV === 'production',
     id: 'G-8TB235FLL2',
     config: {
       page_title: 'Mad Games Tycoon 2 Calculator',
@@ -16,6 +18,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Private — server-only. Never exposed to the client bundle.
     openaiApiKey: process.env.OPENAI_API_KEY,
+    public: {
+      siteUrl: 'https://madgamestycoon.com',
+    },
   },
   app: {
     head: {
