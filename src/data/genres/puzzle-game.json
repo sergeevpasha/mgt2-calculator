@@ -1,7 +1,7 @@
 {
   "id": "puzzle-game",
   "name": "Puzzle Game",
-  "subgenres": ["None", "Action", "Fighting Game", "Interactive Movie", "Simulation", "Strategy"],
+  "subgenres": ["None", "Interactive Movie", "Platformer", "Skill Game", "Strategy", "Visual Novel"],
   "targetGroups": ["Teenagers", "Adults", "Seniors"],
   "designPriority": [50, 10, 10, 30],
   "designFocus": {
@@ -10,30 +10,30 @@
       "focus2": [4, 2, 6, 8],
       "direction": [8, 0, 8]
     },
-    "Action": {
-      "focus1": [5, 2, 7, 5],
-      "focus2": [4, 3, 7, 7],
-      "direction": [7, 2, 8]
-    },
-    "Fighting Game": {
-      "focus1": [7, 2, 8, 3],
-      "focus2": [4, 5, 6, 5],
-      "direction": [7, 3, 8]
-    },
     "Interactive Movie": {
       "focus1": [6, 2, 7, 3],
       "focus2": [6, 5, 5, 6],
       "direction": [7, 2, 6]
     },
-    "Simulation": {
-      "focus1": [6, 4, 5, 5],
-      "focus2": [3, 2, 6, 9],
-      "direction": [5, 2, 8]
+    "Platformer": {
+      "focus1": [7, 2, 8, 4],
+      "focus2": [3, 3, 7, 6],
+      "direction": [8, 1, 7]
+    },
+    "Skill Game": {
+      "focus1": [7, 3, 7, 4],
+      "focus2": [3, 2, 7, 7],
+      "direction": [7, 0, 7]
     },
     "Strategy": {
       "focus1": [7, 5, 5, 4],
       "focus2": [3, 1, 6, 9],
       "direction": [5, 2, 8]
+    },
+    "Visual Novel": {
+      "focus1": [6, 2, 7, 3],
+      "focus2": [6, 5, 5, 6],
+      "direction": [7, 1, 6]
     }
   },
   "topics": [

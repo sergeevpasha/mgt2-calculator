@@ -3,15 +3,15 @@
   "name": "Role-Playing Game",
   "subgenres": [
     "None",
+    "Action",
     "Adventure",
-    "Building Game",
-    "Fighting Game",
     "First-Person Shooter",
-    "Interactive Movie",
-    "Skill Game",
-    "Sports Game",
+    "Platformer",
+    "Puzzle Game",
+    "Real-Time Strategy",
+    "Strategy",
     "Survival Game",
-    "Visual Novel"
+    "Third-Person Shooter"
   ],
   "targetGroups": ["Adults", "Seniors"],
   "designPriority": [40, 30, 15, 15],
@@ -21,53 +21,54 @@
       "focus2": [8, 8, 5, 4],
       "direction": [2, 6, 7]
     },
+    "Action": {
+      "focus1": [6, 4, 2, 3],
+      "focus2": [7, 7, 7, 4],
+      "direction": [3, 6, 7]
+    },
     "Adventure": {
       "focus1": [7, 4, 2, 1],
       "focus2": [9, 8, 5, 4],
       "direction": [3, 5, 7]
-    },
-    "Building Game": {
-      "focus1": [10, 7, 0, 4],
-      "focus2": [5, 5, 5, 4],
-      "direction": [2, 5, 7]
-    },
-    "Fighting Game": {
-      "focus1": [7, 4, 3, 2],
-      "focus2": [7, 9, 5, 3],
-      "direction": [3, 7, 7]
     },
     "First-Person Shooter": {
       "focus1": [6, 3, 2, 3],
       "focus2": [7, 7, 7, 5],
       "direction": [2, 7, 7]
     },
-    "Interactive Movie": {
-      "focus1": [7, 4, 2, 2],
-      "focus2": [9, 9, 4, 3],
-      "direction": [3, 6, 5]
+    "Platformer": {
+      "focus1": [8, 3, 3, 3],
+      "focus2": [6, 7, 7, 3],
+      "direction": [4, 5, 6]
     },
-    "Skill Game": {
-      "focus1": [7, 4, 3, 3],
+    "Puzzle Game": {
+      "focus1": [8, 4, 2, 3],
+      "focus2": [7, 6, 5, 5],
+      "direction": [4, 4, 7]
+    },
+    "Real-Time Strategy": {
+      "focus1": [8, 6, 0, 3],
       "focus2": [6, 6, 6, 5],
-      "direction": [3, 4, 7]
+      "direction": [2, 6, 7]
     },
-    "Sports Game": {
-      "focus1": [8, 5, 3, 4],
-      "focus2": [6, 6, 4, 4],
-      "direction": [3, 4, 6]
+    "Strategy": {
+      "focus1": [9, 7, 0, 3],
+      "focus2": [5, 5, 5, 6],
+      "direction": [1, 6, 7]
     },
     "Survival Game": {
       "focus1": [10, 6, 1, 4],
       "focus2": [5, 6, 5, 3],
       "direction": [2, 6, 7]
     },
-    "Visual Novel": {
-      "focus1": [7, 4, 2, 2],
-      "focus2": [9, 9, 4, 3],
-      "direction": [3, 5, 5]
+    "Third-Person Shooter": {
+      "focus1": [8, 4, 1, 2],
+      "focus2": [7, 7, 6, 5],
+      "direction": [3, 6, 6]
     }
   },
   "topics": [
+    "Aliens",
     "Ancient",
     "Ancient China",
     "Androids",
@@ -113,6 +114,7 @@
     "Pirates",
     "Planets",
     "Radioactivity",
+    "Robots",
     "Romans",
     "Samurai",
     "Sandbox",

@@ -3,13 +3,14 @@
   "name": "Action",
   "subgenres": [
     "None",
-    "Building Game",
-    "Economic Simulation",
-    "Interactive Movie",
-    "Real-Time Strategy",
-    "Sports Game",
+    "Adventure",
+    "Fighting Game",
+    "First-Person Shooter",
+    "Platformer",
+    "Role-Playing Game",
+    "Skill Game",
     "Survival Game",
-    "Visual Novel"
+    "Third-Person Shooter"
   ],
   "targetGroups": ["Teenagers", "Adults"],
   "designPriority": [10, 40, 30, 20],
@@ -19,40 +20,45 @@
       "focus2": [4, 4, 10, 4],
       "direction": [5, 7, 9]
     },
-    "Building Game": {
-      "focus1": [5, 5, 5, 7],
-      "focus2": [3, 3, 8, 4],
-      "direction": [4, 6, 8]
+    "Adventure": {
+      "focus1": [4, 2, 6, 4],
+      "focus2": [6, 5, 9, 4],
+      "direction": [5, 6, 8]
     },
-    "Economic Simulation": {
-      "focus1": [5, 5, 5, 7],
-      "focus2": [3, 3, 8, 4],
-      "direction": [3, 5, 8]
+    "Fighting Game": {
+      "focus1": [3, 2, 8, 5],
+      "focus2": [4, 6, 9, 3],
+      "direction": [5, 7, 9]
     },
-    "Interactive Movie": {
-      "focus1": [4, 2, 7, 5],
-      "focus2": [6, 6, 7, 3],
-      "direction": [5, 7, 7]
-    },
-    "Real-Time Strategy": {
-      "focus1": [5, 5, 5, 5],
-      "focus2": [3, 3, 9, 5],
+    "First-Person Shooter": {
+      "focus1": [4, 1, 7, 5],
+      "focus2": [4, 4, 10, 5],
       "direction": [4, 7, 8]
     },
-    "Sports Game": {
-      "focus1": [5, 3, 8, 7],
-      "focus2": [3, 3, 7, 4],
-      "direction": [5, 5, 7]
+    "Platformer": {
+      "focus1": [4, 2, 9, 5],
+      "focus2": [3, 4, 10, 3],
+      "direction": [6, 5, 7]
+    },
+    "Role-Playing Game": {
+      "focus1": [5, 3, 5, 5],
+      "focus2": [5, 5, 8, 4],
+      "direction": [4, 7, 8]
+    },
+    "Skill Game": {
+      "focus1": [4, 3, 8, 5],
+      "focus2": [3, 3, 9, 5],
+      "direction": [5, 5, 8]
     },
     "Survival Game": {
       "focus1": [6, 4, 5, 7],
       "focus2": [3, 3, 9, 3],
       "direction": [4, 7, 9]
     },
-    "Visual Novel": {
-      "focus1": [4, 2, 7, 5],
-      "focus2": [6, 6, 7, 3],
-      "direction": [5, 6, 7]
+    "Third-Person Shooter": {
+      "focus1": [4, 2, 6, 5],
+      "focus2": [4, 5, 9, 5],
+      "direction": [5, 7, 7]
     }
   },
   "topics": [

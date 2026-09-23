@@ -1,7 +1,7 @@
 {
   "id": "skill-game",
   "name": "Skill Game",
-  "subgenres": ["None", "Adventure", "First-Person Shooter", "Interactive Movie"],
+  "subgenres": ["None", "Action", "Platformer", "Puzzle Game"],
   "targetGroups": ["Children", "Teenagers", "Adults", "Seniors", "All"],
   "designPriority": [40, 10, 10, 40],
   "designFocus": {
@@ -10,20 +10,20 @@
       "focus2": [2, 3, 8, 7],
       "direction": [7, 1, 7]
     },
-    "Adventure": {
-      "focus1": [5, 2, 7, 3],
-      "focus2": [5, 5, 7, 6],
-      "direction": [6, 2, 7]
+    "Action": {
+      "focus1": [5, 2, 7, 5],
+      "focus2": [3, 3, 9, 6],
+      "direction": [6, 3, 7]
     },
-    "First-Person Shooter": {
-      "focus1": [5, 1, 7, 5],
-      "focus2": [3, 3, 9, 7],
-      "direction": [5, 3, 7]
+    "Platformer": {
+      "focus1": [6, 1, 9, 5],
+      "focus2": [2, 3, 9, 5],
+      "direction": [7, 1, 6]
     },
-    "Interactive Movie": {
-      "focus1": [5, 3, 7, 4],
-      "focus2": [5, 5, 6, 5],
-      "direction": [7, 3, 5]
+    "Puzzle Game": {
+      "focus1": [6, 2, 7, 5],
+      "focus2": [3, 3, 7, 7],
+      "direction": [7, 1, 7]
     }
   },
   "topics": [

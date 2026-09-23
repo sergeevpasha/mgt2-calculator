@@ -1,7 +1,7 @@
 {
   "id": "interactive-movie",
   "name": "Interactive Movie",
-  "subgenres": ["None", "Action", "Adventure", "Building Game", "Strategy"],
+  "subgenres": ["None", "Adventure", "Puzzle Game", "Skill Game", "Visual Novel"],
   "targetGroups": ["Teenagers", "Adults", "Seniors"],
   "designPriority": [10, 50, 30, 10],
   "designFocus": {
@@ -10,25 +10,25 @@
       "focus2": [10, 10, 3, 2],
       "direction": [7, 7, 3]
     },
-    "Action": {
-      "focus1": [3, 2, 7, 4],
-      "focus2": [8, 8, 5, 3],
-      "direction": [6, 7, 5]
-    },
     "Adventure": {
       "focus1": [4, 2, 6, 2],
       "focus2": [10, 9, 4, 3],
       "direction": [6, 6, 4]
     },
-    "Building Game": {
-      "focus1": [5, 5, 5, 5],
-      "focus2": [7, 7, 3, 3],
-      "direction": [5, 6, 4]
+    "Puzzle Game": {
+      "focus1": [5, 2, 7, 3],
+      "focus2": [8, 7, 4, 4],
+      "direction": [7, 5, 5]
     },
-    "Strategy": {
-      "focus1": [5, 5, 5, 5],
-      "focus2": [7, 7, 3, 3],
-      "direction": [5, 6, 4]
+    "Skill Game": {
+      "focus1": [4, 3, 8, 3],
+      "focus2": [7, 7, 5, 3],
+      "direction": [7, 5, 4]
+    },
+    "Visual Novel": {
+      "focus1": [3, 2, 7, 3],
+      "focus2": [10, 10, 3, 2],
+      "direction": [7, 6, 3]
     }
   },
   "topics": [

@@ -1,7 +1,7 @@
 {
   "id": "adventure",
   "name": "Adventure",
-  "subgenres": ["None", "Interactive Movie", "Simulation", "Strategy", "Survival Game"],
+  "subgenres": ["None", "Interactive Movie", "Platformer", "Puzzle Game", "Third-Person Shooter", "Visual Novel"],
   "targetGroups": ["Adults", "Seniors"],
   "designPriority": [40, 30, 15, 15],
   "designFocus": {
@@ -15,20 +15,25 @@
       "focus2": [10, 9, 5, 4],
       "direction": [5, 5, 5]
     },
-    "Simulation": {
-      "focus1": [3, 3, 3, 3],
-      "focus2": [7, 7, 7, 7],
-      "direction": [3, 5, 7]
+    "Platformer": {
+      "focus1": [4, 1, 7, 2],
+      "focus2": [7, 7, 8, 4],
+      "direction": [6, 4, 6]
     },
-    "Strategy": {
-      "focus1": [4, 4, 3, 2],
-      "focus2": [7, 6, 7, 7],
-      "direction": [3, 5, 7]
+    "Puzzle Game": {
+      "focus1": [4, 1, 5, 2],
+      "focus2": [8, 7, 7, 6],
+      "direction": [6, 3, 7]
     },
-    "Survival Game": {
-      "focus1": [5, 3, 4, 3],
-      "focus2": [7, 7, 7, 4],
-      "direction": [4, 5, 7]
+    "Third-Person Shooter": {
+      "focus1": [4, 2, 5, 1],
+      "focus2": [8, 8, 7, 5],
+      "direction": [5, 5, 6]
+    },
+    "Visual Novel": {
+      "focus1": [4, 2, 5, 1],
+      "focus2": [10, 9, 5, 4],
+      "direction": [5, 5, 5]
     }
   },
   "topics": [

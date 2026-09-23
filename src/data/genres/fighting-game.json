@@ -1,7 +1,7 @@
 {
   "id": "fighting-game",
   "name": "Fighting Game",
-  "subgenres": ["None", "First-Person Shooter", "Interactive Movie", "Puzzle Game"],
+  "subgenres": ["None", "Action", "Platformer", "Sports Game"],
   "targetGroups": ["Teenagers", "Adults"],
   "designPriority": [20, 20, 10, 50],
   "designFocus": {
@@ -10,20 +10,20 @@
       "focus2": [4, 10, 6, 1],
       "direction": [6, 9, 8]
     },
-    "First-Person Shooter": {
-      "focus1": [5, 1, 9, 3],
-      "focus2": [4, 8, 7, 3],
-      "direction": [5, 9, 7]
+    "Action": {
+      "focus1": [5, 2, 9, 3],
+      "focus2": [4, 8, 7, 2],
+      "direction": [5, 8, 8]
     },
-    "Interactive Movie": {
-      "focus1": [5, 2, 9, 2],
-      "focus2": [6, 10, 5, 1],
-      "direction": [6, 8, 6]
+    "Platformer": {
+      "focus1": [6, 2, 10, 3],
+      "focus2": [3, 8, 7, 1],
+      "direction": [7, 7, 7]
     },
-    "Puzzle Game": {
-      "focus1": [6, 2, 9, 3],
-      "focus2": [4, 7, 6, 3],
-      "direction": [7, 6, 8]
+    "Sports Game": {
+      "focus1": [6, 3, 10, 4],
+      "focus2": [3, 7, 5, 2],
+      "direction": [6, 6, 7]
     }
   },
   "topics": [

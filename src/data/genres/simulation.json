@@ -1,15 +1,7 @@
 {
   "id": "simulation",
   "name": "Simulation",
-  "subgenres": [
-    "None",
-    "Fighting Game",
-    "First-Person Shooter",
-    "Puzzle Game",
-    "Sports Game",
-    "Third-Person Shooter",
-    "Visual Novel"
-  ],
+  "subgenres": ["None", "Action", "First-Person Shooter", "Racing", "Sports Game", "Strategy", "Survival Game"],
   "targetGroups": ["Teenagers", "Adults"],
   "designPriority": [10, 40, 20, 30],
   "designFocus": {
@@ -18,35 +10,35 @@
       "focus2": [1, 2, 6, 10],
       "direction": [0, 7, 8]
     },
-    "Fighting Game": {
-      "focus1": [5, 6, 4, 5],
-      "focus2": [2, 5, 6, 7],
-      "direction": [2, 7, 8]
+    "Action": {
+      "focus1": [4, 6, 3, 7],
+      "focus2": [2, 3, 7, 8],
+      "direction": [1, 7, 8]
     },
     "First-Person Shooter": {
       "focus1": [5, 5, 3, 6],
       "focus2": [2, 3, 7, 9],
       "direction": [1, 7, 7]
     },
-    "Puzzle Game": {
-      "focus1": [5, 6, 3, 5],
-      "focus2": [4, 5, 5, 7],
-      "direction": [2, 7, 6]
+    "Racing": {
+      "focus1": [5, 7, 3, 7],
+      "focus2": [1, 2, 7, 8],
+      "direction": [3, 5, 7]
     },
     "Sports Game": {
-      "focus1": [5, 6, 3, 5],
-      "focus2": [4, 5, 5, 7],
-      "direction": [2, 7, 6]
+      "focus1": [6, 7, 4, 7],
+      "focus2": [1, 2, 5, 8],
+      "direction": [2, 5, 7]
     },
-    "Third-Person Shooter": {
-      "focus1": [5, 5, 3, 6],
-      "focus2": [2, 3, 7, 9],
-      "direction": [1, 7, 7]
+    "Strategy": {
+      "focus1": [6, 9, 1, 6],
+      "focus2": [1, 1, 6, 10],
+      "direction": [0, 7, 8]
     },
-    "Visual Novel": {
-      "focus1": [5, 6, 3, 5],
-      "focus2": [4, 5, 5, 7],
-      "direction": [2, 7, 6]
+    "Survival Game": {
+      "focus1": [8, 8, 1, 7],
+      "focus2": [1, 2, 6, 7],
+      "direction": [1, 7, 8]
     }
   },
   "topics": [

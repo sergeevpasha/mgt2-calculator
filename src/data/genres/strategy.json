@@ -3,12 +3,12 @@
   "name": "Strategy",
   "subgenres": [
     "None",
+    "Action",
+    "Building Game",
     "Economic Simulation",
-    "First-Person Shooter",
-    "Racing",
+    "Real-Time Strategy",
     "Role-Playing Game",
-    "Skill Game",
-    "Visual Novel"
+    "Survival Game"
   ],
   "targetGroups": ["Adults", "Seniors"],
   "designPriority": [50, 10, 10, 30],
@@ -18,35 +18,35 @@
       "focus2": [1, 1, 6, 10],
       "direction": [0, 6, 8]
     },
+    "Action": {
+      "focus1": [7, 7, 2, 5],
+      "focus2": [2, 2, 7, 8],
+      "direction": [1, 6, 8]
+    },
+    "Building Game": {
+      "focus1": [10, 10, 0, 5],
+      "focus2": [1, 1, 5, 8],
+      "direction": [1, 5, 7]
+    },
     "Economic Simulation": {
       "focus1": [10, 10, 0, 5],
       "focus2": [1, 1, 5, 8],
       "direction": [0, 5, 7]
     },
-    "First-Person Shooter": {
-      "focus1": [7, 7, 2, 4],
-      "focus2": [2, 2, 7, 9],
-      "direction": [1, 7, 7]
-    },
-    "Racing": {
-      "focus1": [7, 8, 3, 5],
-      "focus2": [1, 1, 7, 8],
-      "direction": [3, 4, 7]
+    "Real-Time Strategy": {
+      "focus1": [8, 10, 0, 4],
+      "focus2": [1, 1, 7, 9],
+      "direction": [1, 6, 7]
     },
     "Role-Playing Game": {
-      "focus1": [7, 8, 1, 3],
-      "focus2": [4, 3, 6, 8],
-      "direction": [1, 5, 7]
+      "focus1": [9, 9, 0, 3],
+      "focus2": [3, 3, 5, 8],
+      "direction": [1, 6, 7]
     },
-    "Skill Game": {
-      "focus1": [8, 8, 2, 4],
-      "focus2": [2, 1, 6, 9],
-      "direction": [3, 4, 8]
-    },
-    "Visual Novel": {
-      "focus1": [7, 8, 2, 3],
-      "focus2": [4, 4, 5, 7],
-      "direction": [2, 6, 6]
+    "Survival Game": {
+      "focus1": [10, 9, 1, 5],
+      "focus2": [1, 1, 6, 7],
+      "direction": [1, 6, 8]
     }
   },
   "topics": [
