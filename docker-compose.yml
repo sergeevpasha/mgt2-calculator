@@ -1,17 +1,24 @@
 services:
   app:
     container_name: mgt2calculator
-    build: ./docker/images/node
+    build:
+      context: .
+      args:
+        UID: '${UID:-1000}'
+        GID: '${GID:-1000}'
+    ports:
+      - '${DOCKER_NODEJS_PORT:-3000}:3000'
     volumes:
       - ./src:/var/www
     working_dir: /var/www
+    user: 'node'
     env_file:
       - .env
     environment:
       HOST: 0.0.0.0
     networks:
-      - default-network
+      - default
 networks:
-  default-network:
-    name: 'mgt2calculator-network'
+  default:
+    name: mgt2calculator-network
     driver: bridge

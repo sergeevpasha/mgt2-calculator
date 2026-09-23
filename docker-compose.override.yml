@@ -1,4 +1,0 @@
-services:
-  app:
-    ports:
-      - '${DOCKER_NODEJS_PORT:-3000}:3000'

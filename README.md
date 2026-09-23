@@ -27,7 +27,7 @@ cp .env.example .env
 2. Configure the following environment variables in your `.env` file:
 ```env
 # Docker Configuration
-DOCKER_NODEJS_PORT=3000
+DOCKER_NODEJS_PORT=3023
 
 # OpenAI API Configuration
 OPENAI_API_KEY=your_openai_api_key_here
@@ -35,50 +35,36 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ## 🐳 Docker Development
 
-The project includes Docker configuration for containerized development. To use it:
+The Dockerfile's default startup command runs `yarn install --immutable` with `src/` mounted at `/var/www`, then starts the Nuxt dev server (`yarn dev`). Dependencies are installed into `src/node_modules`. After pulling dependency changes or switching branches, restart the container to sync dependencies. Startup fails if installation would require changing `yarn.lock`. Custom commands passed to `docker compose run` replace this default command and skip automatic installation.
 
-1. Build and start the containers:
+1. Build and start the container:
 ```bash
-docker compose up -d
+docker compose up --build -d
 ```
 
-2. To stop the containers:
+The app is served at `http://localhost:${DOCKER_NODEJS_PORT}`.
+
+2. Follow the dev server logs:
+```bash
+docker compose logs -f app
+```
+
+3. Open a shell in the container:
+```bash
+docker compose exec app bash
+```
+
+4. Stop the container:
 ```bash
 docker compose down
 ```
 
-3. To enter container:
-```bash
-docker compose exec -it mgt2calculator bash
-```
-
-4. Install dependencies in the container:
-```bash
-yarn install
-```
-
-5. Start dev server in the container:
-```bash
-yarn dev
-```
-
 ## 🔧 Using Makefile
 
-The project includes a Makefile for common development tasks:
-
 ```bash
-# Start development environment
-make dev
-
-# Build the application
-make build
-
-# Run tests
-make test
-
-# Clean build artifacts
-make clean
-
-# Install dependencies
-make install
+make up      # start the container (runs the dev server)
+make down    # stop the container
+make build   # rebuild the image without cache
+make bash    # open a shell in the container
+make start   # up + bash
 ```
