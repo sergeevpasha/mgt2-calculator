@@ -59,6 +59,16 @@ docker compose exec app bash
 docker compose down
 ```
 
+## Checks
+
+Run these in the running container:
+
+```bash
+docker compose exec -T app yarn lint       # ESLint, then a Prettier check
+docker compose exec -T app yarn typecheck  # vue-tsc
+docker compose exec -T app yarn test       # Vitest unit tests, including the genre data
+```
+
 ## Makefile shortcuts
 
 ```bash

@@ -1,4 +1,4 @@
-FROM node:24.21.0-bookworm-slim
+FROM node:24.21.0-trixie-slim
 
 ARG UID=1000
 ARG GID=1000

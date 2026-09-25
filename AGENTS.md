@@ -4,7 +4,7 @@ These instructions apply to the entire repository. Communicate with the user in 
 
 ## Always run the application through Docker
 
-- Run all application commands inside the Docker Compose `app` service: dependency installation, development servers, builds, previews, linting, formatting, and any future tests or type checks.
+- Run all application commands inside the Docker Compose `app` service: dependency installation, development servers, builds, previews, linting, formatting, tests and type checks.
 - Never run the project's Node.js, Yarn, npm, npx, Corepack, Nuxt, ESLint, Prettier, or TypeScript commands directly on the host. Do not install host dependencies or switch package managers.
 - Host commands for Git, file inspection/editing, Docker Compose, and browser/HTTP verification are fine.
 - Run Compose commands from the repository root, where `docker-compose.yml` lives. Use service name `app`; the container name is `mgt2calculator`.
@@ -13,10 +13,12 @@ These instructions apply to the entire repository. Communicate with the user in 
 
 ## Project and container layout
 
-- The app is a Nuxt 3 / Vue 3 calculator, using TypeScript and Tailwind CSS.
-- Application source and `package.json` are in `src/`.
-- `Dockerfile` currently uses Node.js `24.21.0` on Debian Bookworm. Corepack provides the Yarn version pinned by `src/package.json` (`4.9.1`).
-- Compose bind-mounts `./src` to `/var/www`, which is the container's working directory. Paths passed to application tools are relative to `/var/www`, so use `pages/index.vue`, not `src/pages/index.vue`.
+- The app is a Nuxt 4 / Vue 3 calculator, using TypeScript and Tailwind CSS 4.
+- Application source and `package.json` are in `src/`, in Nuxt 4's layout: `app/` holds the Vue app (pages, layouts, components, composables, utils, data and `assets/css/main.css`), `server/` the Nitro routes, and `shared/` the code both use: the genre data in `shared/data/genres/` and the `/api/generate-names` request contract. Unit tests are in `test/`.
+- Tailwind is configured in CSS. `app/assets/css/main.css` holds the theme (`@theme`) and the base styles, including the one keyboard focus ring every control uses; there is no `tailwind.config` file.
+- In Vue components, `<script setup lang="ts">` comes before `<template>`. ESLint enforces both the block order and the script language (`vue/block-order`, `vue/block-lang`).
+- `Dockerfile` currently uses Node.js `24.21.0` on Debian Trixie. Corepack provides the Yarn version pinned by `src/package.json` (`4.18.1`).
+- Compose bind-mounts `./src` to `/var/www`, which is the container's working directory. Paths passed to application tools are relative to `/var/www`, so use `app/pages/index.vue`, not `src/app/pages/index.vue`.
 - The container runs as user `node`. Build arguments `UID` and `GID` default to `1000`; preserve this setup and do not work around permission problems by routinely running the app as root.
 - `node_modules`, `.nuxt`, and `.output` created in the container appear under local `src/`. They are generated files and must not be committed or edited as source.
 
@@ -53,16 +55,18 @@ Run these from the repository root:
 | Follow logs interactively | `docker compose logs -f app` |
 | Open an interactive shell | `docker compose exec app bash` |
 | Sync dependencies to the current lockfile | `docker compose exec -T app yarn install --immutable` |
-| Lint | `docker compose exec -T app yarn lint` |
+| Lint (ESLint, then a Prettier check of every file) | `docker compose exec -T app yarn lint` |
 | Apply lint fixes when requested | `docker compose exec -T app yarn lint:fix` |
-| Check formatting of a changed file | `docker compose exec -T app yarn prettier --check pages/index.vue` |
-| Format a changed file | `docker compose exec -T app yarn prettier --write pages/index.vue` |
+| Type-check app, server, shared and test code | `docker compose exec -T app yarn typecheck` |
+| Run the unit tests | `docker compose exec -T app yarn test` |
+| Check formatting of a changed file | `docker compose exec -T app yarn prettier --check app/pages/index.vue` |
+| Format a changed file | `docker compose exec -T app yarn prettier --write app/pages/index.vue` |
 | Restart and rerun startup installation | `docker compose restart app` |
 | Stop without removing the container | `docker compose stop app` |
 | Stop and remove the development containers/network | `docker compose down` |
 | Validate Compose configuration | `docker compose config --quiet` |
 
-Builds are not in this table on purpose: run `yarn build` or `yarn generate` only with the dev service stopped (next section), because they rewrite the `src/.nuxt` the dev server uses. Replace example file paths with the files being changed. `yarn format` formats the entire application; prefer targeted formatting to avoid unrelated edits. `src/package.json` currently has no test or type-check script, so do not claim those checks ran or invent an existing command.
+Builds are not in this table on purpose: run `yarn build` or `yarn generate` only with the dev service stopped (next section), because they rewrite the `src/.nuxt` the dev server uses. Replace example file paths with the files being changed. `yarn format` formats the entire application; prefer targeted formatting to avoid unrelated edits. `yarn test` runs the Vitest unit tests in `src/test/`, including checks of every genre file, so run it after editing the genre data. `yarn typecheck` runs vue-tsc and is not part of `yarn lint`.
 
 After pulling dependency changes or switching branches, restart the service or run the install command explicitly. `docker compose up -d` alone does not restart an already-running, unchanged container. After changing the Dockerfile, rebuild with `docker compose up --build -d`. After changing `.env` or Compose runtime settings, use `docker compose up -d --force-recreate app`; a simple restart does not reload container environment values.
 
@@ -99,19 +103,25 @@ docker compose run --rm --no-deps -T -e YARN_ENABLE_IMMUTABLE_INSTALLS=false app
 
 Review the resulting `src/package.json` and `src/yarn.lock` changes together. Keep immutable installs enabled in the committed configuration. Do not delete the lockfile or disable immutability just to get past an unexplained installation failure.
 
+`src/.yarnrc.yml` keeps Yarn's safer defaults: third-party install scripts don't run, git dependencies are blocked, and a version published less than a day ago isn't installed yet. If a new dependency needs its install script, allow that package with `dependenciesMeta` instead of turning scripts on for all. When `packageManager` moves to a newer Yarn, Yarn may rewrite `.yarnrc.yml` to keep older, looser behavior (`enableScripts: true`, `npmMinimalAgeGate: 0`, `approvedGitRepositories`); review the file and remove those.
+
+TypeScript stays on 6.x. TypeScript 7 is the native compiler without a JavaScript API, which vue-tsc and typescript-eslint need. `@types/node` follows the Node major version of the Dockerfile and Vercel (24). `vite` and `rolldown` are listed because Nuxt and the Tailwind and Vitest plugins expect the project to provide them; keep them on the versions Nuxt uses.
+
 ## Production and hosting
 
 - The live site is https://madgamestycoon.com, hosted on Vercel (project `mgt2-calculator`). Vercel builds and deploys `master` automatically, so a push to `master` is a production release. Push only when the user asks.
 - Vercel builds the Nuxt app itself. The repository has no production Dockerfile, CI or deployment configuration; do not add any unless the user asks.
+- Vercel installs dependencies with Yarn 1 (`yarn install v1.22.19` in the build log) because Corepack isn't enabled for the project. It ignores `src/yarn.lock` and `.yarnrc.yml` and resolves the `package.json` ranges on every build, so production can run newer versions than the lockfile.
 - `server/middleware/canonical-host.ts` redirects `www.madgamestycoon.com` and `mgt2-calculator.vercel.app` to https://madgamestycoon.com with a 308. `server/plugins/page-cache.ts` lets Vercel's CDN cache each rendered page for a day per deployment, so server-rendered output must depend only on the URL; the calculator keeps its selection in the query string.
 - `nuxt.config.ts` reads `OPENAI_API_KEY` when the dev server starts or the app is built. At runtime a built server ignores `OPENAI_API_KEY` and accepts the key only as `NUXT_OPENAI_API_KEY`.
-- To check that the key reaches the server without calling OpenAI, send an empty JSON body: `curl -s -X POST -H 'content-type: application/json' -d '{}' "http://$(docker compose port app 3000)/api/generate-names"`. `400` ("genre and topic are required") means the key is set; `500` ("OpenAI key not configured") means it is missing. The endpoint allows 10 requests per minute per IP.
+- To check that the key reaches the server without calling OpenAI, send an empty JSON body: `curl -s -X POST -H 'content-type: application/json' -d '{}' "http://$(docker compose port app 3000)/api/generate-names"`. `400` ("A known genre and one or two of its topics are required") means the key is set; `500` ("OpenAI key not configured") means it is missing.
+- The endpoint accepts only a genre, subgenre and topics named in the genre data. It allows 10 requests per minute per IP, counted in memory on each serverless instance, so the limit is per instance rather than global.
 
 ## Google Analytics
 
 - GA4 is loaded through `nuxt-gtag` with measurement ID `G-8TB235FLL2` (`nuxt.config.ts`).
 - GA is included only in production builds, so the dev server sends nothing. A production build served locally sends real hits to the live property unless `NUXT_PUBLIC_GTAG_ID` is set to an empty value at runtime, as in the preview command above.
-- `pages/index.vue` sends these events, each with a `genre` parameter: `select_genre`, `select_subgenre`, `select_topic`, `random_topics`, `generate_names` and `copy_settings`. Analytics reports depend on these names, so do not rename or remove events without asking.
+- `app/pages/index.vue` sends these events, each with a `genre` parameter: `select_genre`, `select_subgenre`, `select_topic`, `random_topics`, `generate_names` and `copy_settings`. Analytics reports depend on these names, so do not rename or remove events without asking.
 
 ## Troubleshooting
 

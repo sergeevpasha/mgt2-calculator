@@ -1,0 +1,92 @@
+/* Scan only the app's own sources. The container has no .gitignore, so automatic detection would also read .nuxt and .output. */
+@import 'tailwindcss' source(none);
+@source '../..';
+
+@theme {
+  /* The layout is desktop-first: base classes target wide screens and the max-* variants step down,
+     e.g. `max-lg:` applies at 1150px and below and `max-sm:` at 600px and below. */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 361px;
+  --breakpoint-sm: 601px;
+  --breakpoint-md: 921px;
+  --breakpoint-lg: 1151px;
+  --breakpoint-xl: 1440px;
+
+  --color-paper: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-ink: #273449;
+  /* Secondary text. #718096 was 3.7:1 on the page background; this passes WCAG AA (4.5:1) on every surface. */
+  --color-muted: #5f6c80;
+  --color-line: #e5e9f0;
+
+  --color-accent: #4268c6;
+  --color-accent-soft: #eef3ff;
+  --color-accent-100: #e1eaff;
+  --color-accent-150: #dfe7f6;
+  --color-accent-200: #d2def5;
+  --color-accent-300: #b9cbef;
+  --color-accent-400: #7596df;
+  --color-accent-500: #6587da;
+  --color-accent-700: #365cb5;
+
+  --color-denim-300: #8a9ec5;
+  --color-denim-350: #889bb9;
+  --color-denim-500: #6a82b7;
+  --color-denim-600: #526fa9;
+  --color-denim-700: #4667ac;
+  --color-denim-800: #344e83;
+
+  --color-steel-50: #f9fafc;
+  --color-steel-100: #f5f7fa;
+  --color-steel-150: #f1f4f9;
+  --color-steel-200: #edf1f7;
+  --color-steel-250: #e8edf6;
+  --color-steel-300: #e0e6ef;
+  --color-steel-350: #dce3ed;
+  --color-steel-400: #cad4e4;
+  --color-steel-500: #a1adc0;
+  --color-steel-600: #8e9eb7;
+  --color-steel-900: #52647d;
+
+  --color-danger: #aa4939;
+  --color-danger-soft: #fbeee8;
+
+  --font-sans: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  --font-serif: Georgia, serif;
+
+  --shadow-panel: 0 3px 6px #27332f02;
+  --shadow-card: 0 4px 18px #26365005;
+  --shadow-button: 0 3px 8px #4268c620;
+
+  --animate-loading: loading 1.2s ease-in-out infinite;
+
+  --default-transition-duration: 160ms;
+  --default-transition-timing-function: ease;
+
+  @keyframes loading {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(350%);
+    }
+  }
+}
+
+@utility bg-chevron {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238b9bb3'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+}
+
+@layer base {
+  /* Tailwind 4 no longer gives buttons a pointer cursor; keep the behavior the site was designed with. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* One keyboard focus ring for every control. */
+  :focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--color-accent) 50%, transparent);
+    outline-offset: 4px;
+  }
+}

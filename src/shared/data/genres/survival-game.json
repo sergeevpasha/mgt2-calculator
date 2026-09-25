@@ -1,0 +1,101 @@
+{
+  "id": "survival-game",
+  "name": "Survival Game",
+  "icon": "iconSurvival.png",
+  "subgenres": [
+    "None",
+    "Action",
+    "First-Person Shooter",
+    "Platformer",
+    "Role-Playing Game",
+    "Strategy",
+    "Third-Person Shooter"
+  ],
+  "targetGroups": ["Teenagers", "Adults", "Seniors"],
+  "designPriority": [30, 30, 10, 30],
+  "designFocus": {
+    "None": {
+      "focus1": [10, 7, 2, 9],
+      "focus2": [1, 2, 7, 2],
+      "direction": [2, 7, 8]
+    },
+    "Action": {
+      "focus1": [8, 5, 3, 8],
+      "focus2": [2, 3, 8, 3],
+      "direction": [3, 7, 8]
+    },
+    "First-Person Shooter": {
+      "focus1": [9, 5, 3, 7],
+      "focus2": [2, 3, 8, 3],
+      "direction": [2, 7, 7]
+    },
+    "Platformer": {
+      "focus1": [9, 5, 5, 7],
+      "focus2": [1, 3, 8, 2],
+      "direction": [4, 5, 7]
+    },
+    "Role-Playing Game": {
+      "focus1": [10, 6, 1, 7],
+      "focus2": [3, 4, 6, 3],
+      "direction": [2, 7, 7]
+    },
+    "Strategy": {
+      "focus1": [10, 8, 1, 7],
+      "focus2": [1, 1, 7, 5],
+      "direction": [1, 7, 8]
+    },
+    "Third-Person Shooter": {
+      "focus1": [9, 6, 3, 7],
+      "focus2": [2, 3, 7, 3],
+      "direction": [3, 7, 7]
+    }
+  },
+  "topics": [
+    "Agriculture",
+    "Aliens",
+    "Animals",
+    "Apocalypse",
+    "Archery",
+    "Astronauts",
+    "Bunker",
+    "Cities",
+    "Crafting",
+    "Demons",
+    "Desert",
+    "Digging",
+    "Dinosaurs",
+    "Diving",
+    "Dungeons",
+    "End Times",
+    "Expeditions",
+    "Fishing",
+    "Food",
+    "Hiking",
+    "Horror",
+    "Hunting",
+    "Ice Age",
+    "Islands",
+    "Jungle",
+    "Middle Ages",
+    "Military",
+    "Monster",
+    "Mutants",
+    "Nature",
+    "Oceans",
+    "Parallel Worlds",
+    "Predators",
+    "Radioactivity",
+    "Raw Materials",
+    "Robots",
+    "Sandbox",
+    "Space",
+    "Stone Age",
+    "Survivalism",
+    "Terraforming",
+    "Vampires",
+    "Vikings",
+    "Viruses",
+    "Werewolves",
+    "Zombies"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "racing",
+  "name": "Racing",
+  "icon": "iconRacing.png",
+  "subgenres": ["None", "Action", "Simulation", "Sports Game"],
+  "targetGroups": ["Children", "Teenagers", "Adults", "Seniors", "All"],
+  "designPriority": [10, 40, 30, 20],
+  "designFocus": {
+    "None": {
+      "focus1": [7, 4, 8, 6],
+      "focus2": [1, 2, 8, 4],
+      "direction": [8, 0, 4]
+    },
+    "Action": {
+      "focus1": [6, 3, 7, 6],
+      "focus2": [2, 3, 9, 4],
+      "direction": [7, 2, 5]
+    },
+    "Simulation": {
+      "focus1": [7, 6, 5, 6],
+      "focus2": [1, 2, 7, 6],
+      "direction": [5, 2, 5]
+    },
+    "Sports Game": {
+      "focus1": [8, 3, 9, 7],
+      "focus2": [1, 2, 6, 4],
+      "direction": [7, 0, 4]
+    }
+  },
+  "topics": [
+    "Airplanes",
+    "Bicycle",
+    "Cabs",
+    "Cars",
+    "Desert",
+    "Drones",
+    "Economy",
+    "Extreme Sports",
+    "Historical",
+    "Horses",
+    "Jet Ski",
+    "Kart Racing",
+    "Motorcycles",
+    "Motorsports",
+    "Physics",
+    "Police",
+    "Rallycross",
+    "Riding",
+    "Roman Empire",
+    "Sailing",
+    "Skateboards",
+    "Skiing",
+    "Skydiving",
+    "Spaceships",
+    "Sports",
+    "Stock Car",
+    "Surfing",
+    "Transportation",
+    "Trucks"
+  ]
+}

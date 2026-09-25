@@ -1,0 +1,1 @@
+{"root":["./designSettings.test.ts","./genres.test.ts","./selectionQuery.test.ts","./useCalculatorSelection.test.ts","./useNameGenerator.test.ts","./server/name-request.test.ts","./server/rate-limit.test.ts","./server/titles.test.ts","../.nuxt/types/nitro-nuxt.d.ts","../.nuxt/types/nitro.d.ts"],"version":"6.0.3"}

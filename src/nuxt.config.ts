@@ -1,18 +1,21 @@
+import tailwindcss from '@tailwindcss/vite';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    'nuxt-gtag'
-  ],
+  modules: ['@nuxt/eslint', 'nuxt-gtag'],
+  css: ['~/assets/css/main.css'],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   gtag: {
     // Local development shouldn't show up as site traffic.
     enabled: process.env.NODE_ENV === 'production',
     id: 'G-8TB235FLL2',
     config: {
       page_title: 'Mad Games Tycoon 2 Calculator',
-      send_page_view: true
-    }
+      send_page_view: true,
+    },
   },
   compatibilityDate: '2025-04-10',
   runtimeConfig: {
@@ -29,7 +32,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'A calculator and helper tool for Mad Games Tycoon 2' },
-        { name: 'theme-color', content: '#1a1f24' },
+        { name: 'theme-color', content: '#ffffff' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
