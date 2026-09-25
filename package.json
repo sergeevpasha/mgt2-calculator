@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "description": "Vercel's build reads packageManager here, at the repository root, to enable Corepack. The app and its dependencies are in src/.",
+  "packageManager": "yarn@4.18.1"
+}
