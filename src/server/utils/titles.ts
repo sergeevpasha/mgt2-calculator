@@ -1,3 +1,4 @@
+import Anthropic from '@anthropic-ai/sdk';
 import { TITLE_COUNT } from '#shared/generateNames';
 import type { GenerateNamesRequest } from '#shared/generateNames';
 
@@ -30,43 +31,44 @@ export const parseTitles = (content: unknown): string[] =>
         .filter(title => title.length > 0)
     : [];
 
-export const generateTitles = async (apiKey: string, request: GenerateNamesRequest): Promise<string[]> => {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: 'gpt-5.4-mini',
-      messages: [
-        {
-          role: 'system',
-          content:
-            'You name video games. Suggest titles that could sit on a real store shelf: specific to the premise, easy to say, no filler.',
-        },
-        { role: 'user', content: buildTitlePrompt(request) },
-      ],
-      reasoning_effort: 'low',
-      // Reasoning tokens count toward this cap. Too small a cap returns no titles at all.
-      max_completion_tokens: 2000,
-    }),
-    signal: AbortSignal.timeout(TIMEOUT_MS),
-  }).catch((cause: unknown) => {
-    const timedOut = cause instanceof DOMException && cause.name === 'TimeoutError';
-    throw createError({
-      statusCode: timedOut ? 504 : 502,
-      statusMessage: timedOut ? 'Upstream timeout' : 'Upstream error',
+// The titles in Claude's answer. A request Claude declined has none.
+export const titlesFromMessage = (message: Anthropic.Beta.BetaMessage): string[] => {
+  if (message.stop_reason === 'refusal') return [];
+  const text = message.content
+    .filter(block => block.type === 'text')
+    .map(block => block.text)
+    .join('\n');
+  return parseTitles(text);
+};
+
+export const generateTitles = async (claude: Anthropic, request: GenerateNamesRequest): Promise<string[]> => {
+  const message = await claude.beta.messages
+    .create(
+      {
+        model: 'claude-sonnet-5-5',
+        // Thinking counts toward this cap. Low effort keeps it short, and the titles take a few hundred tokens.
+        max_tokens: 4000,
+        output_config: { effort: 'low' },
+        system:
+          'You name video games. Suggest titles that could sit on a real store shelf: specific to the premise, easy to say, no filler.',
+        messages: [{ role: 'user', content: buildTitlePrompt(request) }],
+        // If Claude declines a premise as cyber or AI-development work (a hacking game, say), the API retries it on
+        // Anthropic's default fallback model instead of returning no titles.
+        betas: ['server-side-fallback-2026-07-01'],
+        fallbacks: 'default',
+      },
+      { timeout: TIMEOUT_MS }
+    )
+    .catch((cause: unknown) => {
+      // Covers a failed token exchange too. Claude's error body isn't passed on to the client.
+      const timedOut = cause instanceof Anthropic.APIConnectionTimeoutError;
+      throw createError({
+        statusCode: timedOut ? 504 : 502,
+        statusMessage: timedOut ? 'Upstream timeout' : 'Upstream error',
+      });
     });
-  });
 
-  if (!response.ok) {
-    // Don't leak OpenAI's response body to the client.
-    throw createError({ statusCode: 502, statusMessage: 'Upstream error' });
-  }
-
-  const data = await response.json();
-  const titles = parseTitles(data?.choices?.[0]?.message?.content);
+  const titles = titlesFromMessage(message);
   if (!titles.length) {
     throw createError({ statusCode: 502, statusMessage: 'No titles returned' });
   }

@@ -5,7 +5,7 @@ const isOneOf = (value: unknown, names: string[]): value is string =>
   typeof value === 'string' && names.includes(value);
 
 // Accept only names from the genre data. The prompt is built from them, so the endpoint can't be used to
-// send arbitrary text to OpenAI on our key.
+// send arbitrary text to Claude on our account.
 export const parseNameRequest = (body: unknown): GenerateNamesRequest | undefined => {
   if (typeof body !== 'object' || body === null) return undefined;
   const { genre: genreName, subgenre, topics } = body as Record<string, unknown>;

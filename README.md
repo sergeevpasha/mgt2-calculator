@@ -7,7 +7,7 @@ A calculator for Mad Games Tycoon 2. Pick a genre and subgenre to see the design
 - Development priority, design focus and design direction values for every genre and subgenre
 - Target groups and compatible topics for each genre
 - Topic search and random topic picks
-- Game name ideas from the OpenAI API
+- Game name ideas from Claude
 - Shareable links: the selection is kept in the URL
 
 ## Getting started
@@ -24,13 +24,15 @@ A calculator for Mad Games Tycoon 2. Pick a genre and subgenre to see the design
 cp .env.example .env
 ```
 
-2. Configure the following environment variables in your `.env` file:
+2. Configure the following environment variable in your `.env` file:
 ```env
 # Docker Configuration
 DOCKER_NODEJS_PORT=3023
+```
 
-# OpenAI API Configuration
-OPENAI_API_KEY=your_openai_api_key_here
+3. Name ideas come from Claude, which the server signs in to without an API key: on Vercel each request carries an identity token that the Claude API trades for a short-lived access token. To generate names locally, pull the Vercel project's Development variables (this needs access to the project), then recreate the container:
+```bash
+vercel env pull .env.local --environment=development
 ```
 
 ## Development with Docker

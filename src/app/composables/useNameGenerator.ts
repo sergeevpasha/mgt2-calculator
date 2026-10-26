@@ -4,7 +4,7 @@ import type { GenerateNamesRequest } from '#shared/generateNames';
 const isRateLimited = (cause: unknown): boolean =>
   typeof cause === 'object' && cause !== null && 'statusCode' in cause && cause.statusCode === 429;
 
-// Game name ideas from /api/generate-names, which calls OpenAI on the server so the key stays there.
+// Game name ideas from /api/generate-names, which asks Claude on the server.
 export const useNameGenerator = () => {
   const names = ref<string[]>([]);
   const error = ref('');

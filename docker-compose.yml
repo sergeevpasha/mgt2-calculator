@@ -14,6 +14,9 @@ services:
     user: 'node'
     env_file:
       - .env
+      # `vercel env pull .env.local --environment=development` writes the Claude sign-in IDs and a 12-hour token here.
+      - path: .env.local
+        required: false
     environment:
       HOST: 0.0.0.0
     networks:

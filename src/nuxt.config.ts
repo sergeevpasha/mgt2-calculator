@@ -19,8 +19,11 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-04-10',
   runtimeConfig: {
-    // Private — server-only. Never exposed to the client bundle.
-    openaiApiKey: process.env.OPENAI_API_KEY,
+    // Server-only. The name generator signs in to Claude with Workload Identity Federation, so there is no API key:
+    // these IDs from the Claude Console's federation setup are not secret.
+    anthropicFederationRuleId: process.env.ANTHROPIC_FEDERATION_RULE_ID,
+    anthropicOrganizationId: process.env.ANTHROPIC_ORGANIZATION_ID,
+    anthropicServiceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     public: {
       siteUrl: 'https://madgamestycoon.com',
     },
