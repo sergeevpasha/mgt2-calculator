@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: '2025-04-10',
+  routeRules: {
+    // Browsers keep the genre icons and favicons instead of asking again on every page.
+    '/icons/**': { headers: { 'cache-control': 'public, max-age=2592000' } },
+  },
   runtimeConfig: {
     // Server-only. The name generator signs in to Claude with Workload Identity Federation, so there is no API key:
     // these IDs from the Claude Console's federation setup are not secret.
